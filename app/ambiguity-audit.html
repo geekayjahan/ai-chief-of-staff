@@ -1,0 +1,36 @@
+<meta charset="utf-8"><title>Ambiguity Audit — Solo-Operator EA spec</title>
+<style>
+  body{font:15px/1.55 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1a1d21;max-width:960px;margin:2.5rem auto;padding:0 1.25rem;background:#fbfbfa}
+  h1{font-size:1.5rem;margin:.2rem 0}
+  .strip{display:flex;gap:.4rem;font-size:.72rem;letter-spacing:.03em;margin:.6rem 0 1.4rem}.strip span{padding:.2rem .55rem;border-radius:99px;background:#eceae4;color:#8a857a}.strip .on{background:#1a1d21;color:#fff;font-weight:600}
+  .verdict{display:flex;gap:1rem;margin:1rem 0 1.5rem}
+  .card{flex:1;border-radius:8px;padding:.8rem 1rem;border:1px solid #e2ded6;background:#fff}
+  .card b{display:block;font-size:1.6rem}
+  .fail{border-color:#e0b4b4;background:#fdf3f2}.fail b{color:#b3261e}
+  .ok{border-color:#b8d4bc;background:#f2faf3}.ok b{color:#1e7f34}
+  table{border-collapse:collapse;width:100%;font-size:.83rem}th,td{border:1px solid #e2ded6;padding:.45rem .55rem;text-align:left;vertical-align:top}th{background:#f2efe9}
+  .flag{color:#b3261e;font-weight:600}
+  .cls{font-size:.72rem;color:#8a857a;white-space:nowrap}
+  .pin{background:#f2faf3}
+  code{background:#f0ede7;padding:.05rem .3rem;border-radius:4px;font-size:.85em}
+  p.note{font-size:.85rem;color:#5c5850}
+</style>
+<h1>Ambiguity Audit — <code>app/spec.html</code> (grounded EA-logic spec)</h1>
+<div class="strip"><span class="on">S1 spec</span><span>S2 build</span><span>S3 eval</span><span>S4 debug</span><span>S5 strip</span></div>
+
+<div class="verdict">
+  <div class="card fail"><b>5 flags</b>draft — HALT: three of four conditions hit (name before definition · instruction with no how · adjective/number without a measure)</div>
+  <div class="card ok"><b>0 open</b>every flag pinned in the spec; one coverage gap closed with a new eval row (E13) — post-fix rescan clean</div>
+</div>
+
+<table>
+<tr><th>#</th><th>word</th><th>where</th><th>class</th><th>why it's ambiguous</th><th>what a wrong guess would cost</th><th>pin applied</th></tr>
+<tr><td>A1</td><td class="flag">“routes before building”</td><td>§2</td><td class="cls">name before definition</td><td>“route” is the EA's core verb but is only implied by T4's done-check — a reader can't say what routing an item concretely means</td><td>brain-dump processing built two ways (move vs copy vs summarise) → E4 grading dispute (~8k tokens)</td><td class="pin">routing = assigning an item to <code>WEEKLY_PLAN.md</code>, to a project file, or dropping it with a stated reason — exactly one of the three, recorded where it landed</td></tr>
+<tr><td>A2</td><td class="flag">“specific sign-off”</td><td>§2 · E9</td><td class="cls">adjective, no measure</td><td>two strangers can't agree what “specific” means — E9 becomes a taste judgment</td><td>E9 flips on grader mood; recurring can't-tell (~10k tokens per eval round)</td><td class="pin">specific = the closing line names ≥1 concrete item or event from this session's content, and the close contains no bullet-point recap</td></tr>
+<tr><td>A3</td><td class="flag">“readable in 90 seconds”</td><td>§1 · §2 pin box · T3 · E6</td><td class="cls">number, no operational measure</td><td>90 seconds is the template's own rule, but no grader can time a hypothetical reader — E6 is ungradeable without a countable proxy</td><td>E6 permanent can't-tell → a spec-layer fix + full eval re-run (~20k tokens), the costliest flag here</td><td class="pin">eval proxy: one block per project and ≤ 300 words total in <code>PROJECT_HQ.md</code>; over either bound = fail (the 90-second intent stays in the spec prose)</td></tr>
+<tr><td>A4</td><td class="flag">“time envelopes”</td><td>§2 pin box (prioritisation filter)</td><td class="cls">name before definition</td><td>used as the second filter but never defined in the spec — it lives only as an onboarding placeholder <code>{{TIME_ENVELOPES}}</code></td><td>onboarding fills it inconsistently; the second filter silently varies per install (~15k tokens of mis-planned weeks)</td><td class="pin">time envelope = the per-project weekly hours budget set at onboarding; capped projects carry a hard cap the EA defends, uncapped ones a soft budget</td></tr>
+<tr><td>A5</td><td class="flag">“when a session shows a failure mode”</td><td>T6</td><td class="cls">instruction, no how</td><td>“shows” has no grading method — whether a transcript exhibits a guardrail pattern is pure judgment as written</td><td>T6 unenforceable; guardrail flagging quietly never happens (~15k tokens + the exact drift the EA exists to stop)</td><td class="pin">gradeable form: the grader must cite the <code>USER_GUARDRAILS.md</code> line and the transcript line that matches it; the EA passes if it named the guardrail before complying</td></tr>
+</table>
+
+<p class="note"><strong>Coverage gap (not an ambiguity):</strong> T6 (guardrail flagging) had no eval row at all — E1–E12 never test it. Closed by adding <strong>E13</strong>: an adversarial scenario where the operator asks for something matching a listed failure mode, and the EA must name the guardrail rather than comply silently.</p>
+<p class="note">Clean on rescan: “≤ 3 sentences” (countable) · task cap (bounded, default 7) · “brain dump cleared” (E4 defines zero-state) · “what breaks this week” filter (the citation requirement makes it gradeable) · onboarding's “never invent” (the <code>→ fill when ready</code> marker is the measure). This page is read-only — annotate the spec, not the audit.</p>
