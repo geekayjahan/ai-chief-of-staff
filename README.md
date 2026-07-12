@@ -1,127 +1,173 @@
-# Workshop #2 — Student Kit
+# exec-assistant
+Project manager plugin for Cowork and portable templates to run the PM on an platform
 
-**The Product Builder Certification: From Vibe Coding to Spec Engineering**
+# Installation Guide — Everyday Project Manager
 
-Ask an AI to "find me relevant jobs" and it doesn't fail — it returns stale roles, wrong cities, invented companies, and never tells you the ask was underspecified. It's trained to please you, so it guesses. **AI doesn't fail, it drifts.** The cure isn't a better model. It's a spec.
-
-That's the workshop in one line: **the spec is the product; code is the disposable thing you regenerate from it.**
-
----
-
-## Start here
-
-1. **First** (20 min): install [Claude Code](https://claude.com/claude-code) and sign in · install [Node.js LTS](https://nodejs.org) and [git](https://git-scm.com) · run `claude` from the kit's root and type `/` — seeing the workshop commands (`/spec`, `/build`, `/eval`, `/surgical-fix`, `/strip`, and the four tools) is the whole check.
-2. Show up with your laptop. We build everything live.
+Two ways to install. Pick the one that matches your setup.
 
 ---
 
-## The arc — five sessions
+## Option A: Cowork plugin
+
+**Best for:** Anyone using Claude Cowork on desktop. One-step install, automatic onboarding.
+
+### What you need
+- Cowork (desktop app) installed
+- The file `everyday-pm.plugin`
+- 20–45 minutes for onboarding
+
+### Steps
+
+1. **Install the plugin.** Open the `everyday-pm.plugin` file. Cowork shows a preview with the contents. Click the install / accept button.
+
+2. **Pick a folder for your PM.** Decide where you want your personalised Project Manager to live. Common choices:
+   - A subfolder inside an existing Cowork workspace (e.g., `~/Documents/Cowork/Project Manager/`)
+   - A fresh folder anywhere on your computer
+   The folder doesn't need to exist beforehand — the skill will create it.
+
+3. **Start onboarding.** Open Cowork and say: *"Set up my project manager."*
+   The `setup-pm` skill triggers and walks you through 7 phases.
+
+4. **Answer the questions.** The skill asks one phase at a time:
+   - Phase 1: you (name, self-description, working preferences)
+   - Phase 2: do you publish content or teach? (gates whether POV/Voice/Frontier files get installed)
+   - Phase 3: your projects (name, work or personal, role, partner, status, milestone, hours cap if any)
+   - Phase 4: cockpit rules (weekly task cap, brain dump cadence, extra hard rules)
+   - Phase 5: goals (90-day horizon per project, priority hierarchy split work/personal)
+   - Phase 6: POV and voice (only if you said yes in Phase 2)
+   - Phase 7: guardrails (failure modes, decision-fatigue patterns, collaboration dynamics)
+
+5. **Wait for the files.** When all phases are answered, the skill writes the personalised files into your chosen folder. Expect 12+ files for a small install, more if you have many projects.
+
+6. **Open the folder.** Switch to (or open a new session in) the folder where the PM lives. The PM is now live.
+
+---
+
+## Option B: Standalone folder (any LLM)
+
+**Best for:** ChatGPT, Gemini, Claude.ai web, or any setup where the Cowork plugin doesn't apply.
+
+### What you need
+- The `everyday-pm-templates/` folder
+- An LLM that can read files (or that you can paste content into)
+- 20–45 minutes for onboarding
+
+### Steps
+
+1. **Copy the folder.** Put `everyday-pm-templates/` somewhere stable on your computer (or in cloud storage your LLM can access). Rename if you want — e.g., `My Project Manager/`.
+
+2. **Open `ONBOARDING.md`.** The first section is a prompt you give to your LLM.
+
+3. **Paste the prompt + the folder reference into your LLM.** Tell the model: *"This folder contains my Project Manager templates. Follow the instructions in ONBOARDING.md."* If the model can't directly read the folder, paste the content of ONBOARDING.md and ask it to walk you through.
+
+4. **Answer the questions.** Same 7 phases as Option A. The model asks one phase at a time.
+
+5. **The model fills the templates.** It substitutes `{{PLACEHOLDER}}` markers with your answers, copies the project-template files for each project you listed, and writes the personalised versions in place (or in a separate folder if you told it to).
+
+6. **Open the folder for any future session.** The model reads `CLAUDE.md` first and runs the PM from there.
+
+---
+
+## What to expect during onboarding
+
+**Phase 1 — You** (5 min)
+Three questions: name, one-line self-description, how you work.
+
+**Phase 2 — Content layer toggle** (1 min)
+A single yes/no question. If no, skip Phase 6 entirely.
+
+**Phase 3 — Projects** (10–20 min, depending on count)
+For each active project: name, work/personal/both tag, role, partner, working directory, hours cap if any, current status, next milestone. This phase pushes for specifics — don't accept "TBD" from yourself.
+
+**Phase 4 — Cockpit rules** (2 min)
+Weekly task cap (default 7), brain dump cadence (default each session), any extra hard rules you want enforced.
+
+**Phase 5 — Goals** (5–10 min)
+90-day horizon per project, priority hierarchy with role labels.
+
+**Phase 6 — POV and voice** (10–20 min, only if Phase 2 was yes)
+Central lens, core theses, contrarian takes, what you are NOT, distinctive phrases, writing rules, per-project audiences, tone. Skippable per question.
+
+**Phase 7 — Guardrails** (5–10 min)
+Known failure modes (with Flag/Redirect lines), decision-fatigue patterns, collaboration dynamics, energy rhythms.
+
+You can pause and resume between phases. Files are written incrementally.
+
+---
+
+## After install — your first real session
+
+Open the folder in Cowork (or your LLM of choice). The model reads `CLAUDE.md` and asks:
+
+> *"Are we focused on work, personal, or both today?"*
+
+Your answer filters the rest of the session. The model orients you in 3 sentences: where things stand in that context, what's on this week's plan, the one thing to focus on today.
+
+If `BRAIN_DUMP.md` has unprocessed content, the model flags it and offers to process.
+
+End of session: confirm action items are in the right file, close out.
+
+---
+
+## File map after install
 
 ```
-S1  Spec     →  interview to a sharp problem, write the spec       spec.html · evals.md · CLAUDE.md · spec-summary.json
-S2  Build    →  three agents turn the spec into a running app      feature-list.json · app-spec.json · app/
-S3  Eval     →  the review panel grades the build, pass/fail       eval-results.html
-S4  Debug    →  one change, re-run, receipt — per bug              debug-log.html
-S5  Strip    →  a new model ships; cut what the traces say is dead recall-notice.html · strip-page.html
-```
-
-One trace — `claude-progress.txt` — collects the *why* behind every decision. Each session reads it.
-
----
-
-## What each session teaches
-
-**S1 — Spec** · [blueprint](modules/s1-working-backwards/working-backwards-blueprint.md)
-Two steps: the AI interviews *you* — one question at a time, until the problem is sharp, solution-free, and every fuzzy word is pinned — then it writes the spec. Seven parts: the problem, what good looks like, inputs & interfaces, out of scope, the task breakdown, the acceptance checks, and the tech stack. Lean, and living — it updates as you learn.
-
-**S2 — Build** · [blueprint](modules/s2-build/build-blueprint.md)
-Three subagents in a line: one breaks the spec into features, one pins the shared foundation (and **stops if a credential is missing**), one codes feature by feature — each committed and traced. Nothing gets invented that the spec didn't ask for.
-
-**S3 — Eval** · [blueprint](modules/s3-eval/eval-blueprint.md)
-The build faces the panel it would face on a real team — QA, architect, security, the customer, a data reviewer. Each raises their hard question, **encoded as a binary check** (every link opens · no data leaks · every cited skill is really in the CV). An independent judge — not the builder — grades them. Any fail holds the ship. And honestly: these reviewers are simulated, not real audits — for money, data, or safety, a human still signs off.
-
-**S4 — Debug** · [blueprint](modules/s4-debug/surgical-fix-blueprint.md)
-For each failed check: locate it, name the layer (spec · screen · tech stack · prompt · data), make **one** change, re-run *every* check, log the receipt. The opposite of vibe-coding, where five changes go in at once and nobody knows which one worked.
-
-**S5 — Strip** · [blueprint](modules/s5-strip/strip-blueprint.md)
-A new model ships and some of your scaffolding just became dead weight. Re-inspect every scaffold, gather proof from the traces, and cut — only with your sign-off, never on a hunch.
-
----
-
-## The tools — for when the path gets fuzzy
-
-| Command | What it does |
-|---|---|
-| `/ambiguity-audit` | Finds the words in your spec the AI could read two ways — before the build. |
-| `/bar-raiser` | Four checks (customer · data · bet · owner) on any doc before you send it. |
-| `/deep-dive` | 5 Whys to a fixable root cause when you can't see the layer. |
-| `/explain` | Interrogates the build against the spec — where does each requirement live, what breaks if you change it. Not a summary. |
-
----
-
-## How it runs
-
-Type the command → the skill reads its blueprint in `modules/` → the artifact appears in `app/`. Nothing is shown that wasn't built live.
-
-| Command | Produces |
-|---|---|
-| `/spec` | `spec.html` · `CLAUDE.md` · `spec-summary.json` · `evals.md` |
-| `/build` | `feature-list.json` · `app-spec.json` · the source under `app/` |
-| `/eval` | `eval-results.html` — scorecard · traces · patterns · actions |
-| `/surgical-fix` | `debug-log.html` — one receipt per fix |
-| `/strip` | `recall-notice.html` · `strip-plan.html` · `strip-page.html` |
-
-The four rules every blueprint follows (the trace, rendering, doors, CLAUDE.md) are in [`modules/shared-rules.md`](modules/shared-rules.md). Every prompt from the workshop, in run order, is in [`resources/session-prompts.md`](resources/session-prompts.md) — paste your way through the whole build solo.
-
----
-
-## The running example
-
-A **job-search app**: take a CV and a plain ask ("find me relevant jobs"), return a short list of roles that are actually open, actually in the right place, and actually matched to the CV — with the reason on every row. First with a vague prompt (watch it drift), then with a spec (watch it hold). Monday morning you run `/spec` on your own problem.
-
----
-
-## Your kit
-
-```
-product-builder-kit/
-├── README.md                 (this file)
-├── build-assistant.html      (the build, live — tiles light up, tasks tick, notes feed the builder)
-├── modules/                  (the blueprints — what each session runs)
-│   └── shared-rules.md       (the four rules every blueprint follows)
-├── scripts/serve.mjs         (the kit server — dashboards + the comment pipe)
-├── resources/workshop-guide.html  (the teaching guide — Overview · Sessions · Reference · Context)
-├── .claude/                  (the skills + slash commands)
-├── .env.example              (copy to .env; keys go in during S2)
-└── app/                      (starts empty — everything the workshop produces goes here)
+Your folder/
+├── CLAUDE.md                  ← session ritual (model reads first)
+├── STATUS.md                  ← handoff between sessions
+├── PROJECT_HQ.md              ← 90-second cockpit (Work / Personal sections)
+├── WEEKLY_PLAN.md             ← weekly task contract (Work / Personal sections)
+├── GOALS.md                   ← priority hierarchy (Work / Personal)
+├── ROADMAP.md                 ← 90-day milestones
+├── BRAIN_DUMP.md              ← unified inbox
+├── USER_GUARDRAILS.md         ← failure modes
+│
+├── USER_POV.md                ← (only if content layer ON)
+├── USER_VOICE.md              ← (only if content layer ON)
+├── USER_FRONTIER.md           ← (only if content layer ON)
+│
+└── <project-name>/            ← one subfolder per project
+    ├── CLAUDE.md              ← sub-agent (with-cap or no-cap variant)
+    ├── <PROJECT>.md           ← strategy + tasks
+    ├── <PROJECT>_TASKS.md     ← prioritisation matrix
+    └── <PROJECT>_LOG.md       ← hour ledger (only for capped projects)
 ```
 
 ---
 
-## Security
+## Common questions
 
-- **Your CV stays local.** The app processes it on your machine; nothing leaves except the model calls you run yourself — and the eval's security check ("no PII in output") holds that line.
-- **Keys live in `.env`**, which is gitignored. Never paste a key into a spec, a comment, or the chat — the credential checkpoint will ask for it in the right place.
-- **The kit server binds to localhost only.** Comments are a plain local file (`app/comments.json`) — nothing is exposed to the network.
-- **Simulated reviewers aren't audits.** The eval's security reviewer is a teaching device. For money, data, or safety, a human still signs off.
+**Can I skip onboarding sections and fill later?**
+Yes. The model leaves `→ fill when ready` markers in any skipped section. You can run `setup-pm` again later, or just edit the files directly.
+
+**Can I add or remove projects after install?**
+Yes. Create a new subfolder, copy from `project-template/`, fill in the placeholders. Update `PROJECT_HQ.md`, `GOALS.md`, and the KEY FILES table in `CLAUDE.md` to reference it.
+
+**What if I want to change the weekly task cap?**
+Edit `CLAUDE.md`, `WEEKLY_PLAN.md`, and `USER_GUARDRAILS.md` — search-and-replace the number.
+
+**Can I run this without the content layer and add it later?**
+Yes. Re-run `setup-pm` and say yes to Phase 2, or manually copy the three files from `content-optional/` (in the templates) and fill them in.
+
+**The model is making things up during onboarding.**
+Stop and remind it: "Don't invent content. Leave skipped sections as `→ fill when ready`." This is also explicit in the SKILL instructions.
+
+**How do I reset and start over?**
+Delete (or move) your PM folder. Re-run `setup-pm` (Cowork) or re-paste `ONBOARDING.md` (standalone).
 
 ---
 
-## The fine print
+## Troubleshooting
 
-Educational — the job-search app is a worked example for teaching spec engineering, not career or hiring advice. Live listings can be stale or wrong the moment they're fetched; verify any role on the employer's own site before acting on it.
+**The model isn't reading CLAUDE.md at session start.**
+- Cowork: make sure you opened the folder as a Cowork project, not as a free chat with the folder pasted in.
+- Standalone: explicitly tell the model at session start: *"Read CLAUDE.md in this folder first."*
 
----
+**Onboarding finished but some files have raw `{{PLACEHOLDER}}` markers.**
+Tell the model: *"Scan all files in the folder for unfilled `{{PLACEHOLDER}}` markers and either fill them or replace with `→ fill when ready`."*
 
-## Go deeper — a short list, on purpose
+**The PM is too long-winded / too brief.**
+Edit `CLAUDE.md` directly — the "EA IDENTITY" and "Tone" sections drive how it talks.
 
-- *Building effective agents* — Anthropic's canonical patterns. → https://www.anthropic.com/engineering/building-effective-agents
-- *Effective harnesses for long-running agents* — what S2's three-agent chain borrows. → https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents
-- *Effective context engineering for AI agents* — why small context wins. → https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
-- *Working Backwards* (PR/FAQ) — the spec philosophy S1 borrows. → https://coda.io/@colin-bryar/working-backwards-how-write-an-amazon-pr-faq
-- *Your AI Product Needs Evals* — why the checks are the load-bearing artifact. → https://hamel.dev/blog/posts/evals/
-- *A Field Guide to Rapidly Improving AI Products* — the obsession is measurement, not tools. → https://hamel.dev/blog/posts/field-guide/
-- *The Three Gulfs* — comprehension · specification · generalization, the failure map S3 reads by. → https://hamel.dev/notes/llm/data-processing/shreya-data-processing.html
-- *Error-analysis skill* — the discipline behind S3's second pass. → https://github.com/hamelsmu/evals-skills
-- *Error-discovery skill* — human annotation with diverse sampling, the TRACES tab's pattern. → https://github.com/shreyashankar/error-discovery-skill
-- *HTML is the new Markdown* — why the artifacts render as HTML. → https://www.lennysnewsletter.com/p/how-i-ai-html-is-the-new-markdown
+**Sessions feel cluttered even with mode switching.**
+Check that every project has a clear context tag in `PROJECT_HQ.md`. Untagged projects show up in both modes.

@@ -1,0 +1,104 @@
+# Onboarding — Everyday Project Manager
+
+Paste the prompt below into Claude, ChatGPT, Gemini, or any LLM that can read your folder. The model walks you through the questions and fills in the templates.
+
+## Prompt to give the model
+
+> You are helping me set up a personal Project Manager system in this folder. The templates have `{{PLACEHOLDER}}` markers. Walk me through the onboarding questions below in order. Ask one phase at a time. Don't move on until I've answered. When I've answered all phases, fill in every template file by substituting placeholders and writing my answers into the prose sections. Never make up content — if I skip a section, leave a `→ fill when ready` marker. Render two-section files (PROJECT_HQ, WEEKLY_PLAN, GOALS, ROADMAP) with both Work and Personal halves populated from the projects I tagged. Once done, summarise what was written and where, and tell me to open this folder in a fresh session.
+
+## The onboarding phases
+
+### Phase 0 — Pick the install folder
+If you're running this in a separate folder from the templates, confirm where personalised files should be written. Otherwise the templates get overwritten in place.
+
+### Phase 1 — You
+1. What should I call you?
+2. Describe yourself in one or two sentences — role, mode of working, key trait.
+3. Anything important about how you work or communicate?
+
+### Phase 2 — Do you publish content or teach?
+Single question: **Do any of your projects involve publishing content, teaching, building a public voice, or selling something where the audience's perception matters?**
+- Yes → install three optional files (USER_POV.md, USER_VOICE.md, USER_FRONTIER.md) and ask the related questions in Phase 6.
+- No → skip those files entirely. Skip Phase 6.
+
+### Phase 3 — Your projects
+For each active project:
+- Name and optional emoji
+- **Context: work / personal / both** (required — drives session-mode filtering)
+- One-line role / significance
+- Partner (solo or named)
+- Working directory (optional)
+- Priority rank (separate ranks for work and personal)
+- Hard weekly hours cap? If yes, how many hours, and why does the cap exist?
+- One-line current status
+- Next milestone (date if known)
+- One-line "what's involved"
+- Stakeholders / who's affected (can be "just me")
+
+Push for specifics. Skip rather than fake.
+
+### Phase 4 — Rules of the cockpit
+1. Weekly task cap? (default 7, across work + personal)
+2. Brain dump cadence? (default: each session)
+3. Any extra hard rules to enforce?
+
+### Phase 5 — Goals and roadmap
+1. For each project, what does success look like in 90 days?
+2. Priority hierarchy with role labels, separate for work and personal.
+
+### Phase 6 — POV and voice (only if you said yes in Phase 2)
+1. Central lens — one sentence everything you make traces back to.
+2. 3–5 core theses — beliefs you hold that most others don't.
+3. Contrarian takes — where you push back on received wisdom.
+4. What you are NOT — positioning by exclusion.
+5. Distinctive phrases / framings.
+6. Writing patterns to never use. Defaults: AI-pattern phrases ("X lands", "Not x, not y — but z", "That's exactly where", "In a world where"), em dashes in external copy, billboard fragments, rambling.
+7. Always do — counterpart positive rules.
+8. How you write — structural patterns.
+9. For each project with an external audience: who they are, what they fear, what they want to believe, language they use, what makes them buy/subscribe/trust.
+10. Your tone at your best.
+
+### Phase 7 — Guardrails
+1. Known failure modes — name each pattern with a "Flag when:" and "Redirect:" line.
+2. Decision fatigue patterns.
+3. Collaboration dynamics — per partnered project.
+4. Energy and focus rhythms (optional).
+
+## What to write
+
+**Root files** (always): `CLAUDE.md`, `STATUS.md`, `PROJECT_HQ.md`, `WEEKLY_PLAN.md`, `GOALS.md`, `ROADMAP.md`, `BRAIN_DUMP.md`, `USER_GUARDRAILS.md`.
+
+**Content layer** (only if Phase 2 was yes): copy the three files from `content-optional/` to the root.
+
+**Per project**: Create a subfolder (kebab-case name) and copy from `project-template/`:
+- `CLAUDE.md` — use `CLAUDE-with-cap.md` if the project has a hard cap, else `CLAUDE-no-cap.md`
+- `<PROJECT>.md` — renamed from `PROJECT.md`
+- `<PROJECT>_TASKS.md`
+- `<PROJECT>_LOG.md` — only if the project has a hard cap
+
+### Filename derivation
+For project "Content Engine":
+- Subfolder: `content-engine`
+- Files: `CONTENT_ENGINE.md`, `CONTENT_ENGINE_TASKS.md`, `CONTENT_ENGINE_LOG.md`
+
+For project "Family":
+- Subfolder: `family`
+- Files: `FAMILY.md`, `FAMILY_TASKS.md`, `FAMILY_LOG.md`
+
+### Two-section rendering
+PROJECT_HQ.md, WEEKLY_PLAN.md, GOALS.md, ROADMAP.md, STATUS.md all have Work and Personal subsections. Populate each subsection with only the projects tagged for that context (projects tagged "both" appear in both).
+
+If a context has no projects, render `_No projects in this context yet._` under that section.
+
+### Conditional placeholders
+Some placeholders should be empty strings (or the whole line deleted) when their condition isn't met:
+- `CAPPED_PROJECT_INSTRUCTION` / `CAPPED_PROJECT_HARD_RULE` — empty if no project has a cap
+- `ADDITIONAL_HARD_RULES` / `ADDITIONAL_HARD_RULES_BODY` — empty if no extra rules given
+- `CONTENT_LAYER_SECTION` / `CONTENT_LAYER_FILE_ROWS` / `CONTENT_LAYER_FILE_ROWS_HQ` — empty if content layer is off
+- `TASKS_HEADER_CAP_NOTE` / `TASKS_HOURS_LINE` — empty for uncapped projects
+
+When a conditional placeholder is inside a markdown table, delete the whole line including its newline; otherwise the blank line ends the table.
+
+## After install
+
+Open the folder in a fresh chat. The model reads `CLAUDE.md` first, which asks the session-mode question ("work, personal, or both today?") and runs the rest of the ritual. From there, the PM runs itself.
