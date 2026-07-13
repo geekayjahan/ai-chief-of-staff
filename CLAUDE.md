@@ -1,10 +1,10 @@
-# Product Builder WS2 — workshop kit
+# AI Chief of Staff — lightning-lesson repo
 
-This project follows **spec engineering**: the spec is the product; code is the disposable thing you regenerate from it.
+This repo is a ~30-minute lightning lesson: build a **Claude plugin** from a plain-English spec, port it to Claude Desktop, and publish it as a local app. Start at [`README.md`](README.md).
 
-- `modules/` holds the blueprints — the source of truth for every session's procedure. Skills and commands in `.claude/` are their executable mirrors: read the blueprint before running, never run from memory.
-- The arc: **S1 spec → S2 build → S3 eval → S4 debug → S5 strip.** Each stage reads upstream artifacts only.
-- Everything the workshop produces lands in `app/` — spec.html, evals.md, feature-list.json, app-spec.json, the source, eval-results.html, debug-log.html — plus one trace, `app/claude-progress.txt` (format in `modules/shared-rules.md`).
-- The four rules every blueprint follows (trace · render · doors · CLAUDE.md) live in `modules/shared-rules.md`.
-- Keys and credentials live in `.env` only (gitignored; template in `.env.example`) — never in chat, a spec, or any other file.
-- S1 generates a separate `app/CLAUDE.md` for the app being built — that one carries the build's durable tenets; this file just orients the kit.
+- **The spec** is [`app/plugin-spec.md`](app/plugin-spec.md) — plain English, no code. The build follows it one capability at a time.
+- **The plugin source** lives in `plugins/solo-project-manager/` (manifest + skills + templates). Edit there, then run `./build-plugin.sh` to repack `solo-project-manager.plugin` — never hand-edit the `.plugin` zip.
+- **The local-app** version is `local-app/` (the same chief of staff as a plain folder any LLM can run). `everyday-pm-templates/` + `everyday-pm.plugin` are the alternate variant kept as a comparison example.
+- **Capabilities are skills, not code** — each is a markdown `SKILL.md`. Keep them read-only-and-plan in spirit: the assistant plans and re-orients, it never executes project work, and app integration stays least-privilege (read-only, one app, narrow slice).
+- Keys/credentials live in `.env` only (gitignored; template in `.env.example`).
+- `archive/` holds the earlier Product-Builder workshop kit — not part of this lesson; ignore unless reviving it.

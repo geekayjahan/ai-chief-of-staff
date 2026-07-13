@@ -37,6 +37,7 @@ plain-English spec  →  build capabilities, one at a time  →  port to Claude 
 | `build-plugin.sh` | packs the source folder → `.plugin` |
 | `local-app/` | the standalone folder for any LLM (see [`RUN-LOCALLY.md`](local-app/RUN-LOCALLY.md)) |
 | `solo-chief-of-staff-local.zip` | the local app as a downloadable |
+| `everyday-pm-templates/` · `everyday-pm.plugin` | alternate variant (adds work/personal mode) — a second example to compare against `solo` |
 
 ---
 
