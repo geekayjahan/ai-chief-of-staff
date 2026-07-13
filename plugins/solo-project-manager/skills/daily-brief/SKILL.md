@@ -34,6 +34,6 @@ The core loop. Reads the plan, folds in anything new from the brain dump, and ha
 ## Rules
 
 - **Three sentences is the contract.** If the brief runs longer, the cockpit has drifted — prune it, don't pad the brief.
-- **The cap is inviolable.** Routing into the weekly plan always swaps, never grows it past `{{WEEKLY_TASK_CAP}}`.
+- **The cap is inviolable.** Routing into the weekly plan always swaps, never grows it past the weekly task cap set in `WEEKLY_PLAN.md`.
 - **Re-orient, don't execute.** Point at the work; don't do the project work here.
 - **Stay in the folder.** Read/write only the PM files.

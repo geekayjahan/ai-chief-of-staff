@@ -19,7 +19,7 @@ The bookend to the daily brief. Closes the loop on the week so the user isn't re
 
 3. **Roll forward under the cap.** Build next week's `WEEKLY_PLAN.md`:
    - Carry slipped must-dos that still pass *"if this doesn't happen next week, what breaks?"*
-   - Everything must fit within `{{WEEKLY_TASK_CAP}}`. If the carried-over work plus new commitments exceed it, the wrap's job is to force the cut — say explicitly what does NOT make next week and goes to Parking Lot. Do not quietly exceed the cap.
+   - Everything must fit within the weekly task cap (in `WEEKLY_PLAN.md`). If the carried-over work plus new commitments exceed it, the wrap's job is to force the cut — say explicitly what does NOT make next week and goes to Parking Lot. Do not quietly exceed the cap.
    - Roughly half must-dos, half nice-to-haves, per the plan's own rule.
 
 4. **Goals check.** Ask one question: did this week move the top goal in `GOALS.md`, or just stay busy? If two-plus weeks have passed with no movement on the primary bet, flag it — that's the failure this system exists to catch. If `GOALS.md` hasn't been reviewed this month (past the 7th), say so.
@@ -30,7 +30,7 @@ The bookend to the daily brief. Closes the loop on the week so the user isn't re
 
 ## Rules
 
-- **The cap governs next week too.** A wrap that rolls everything forward and blows past `{{WEEKLY_TASK_CAP}}` has failed — forcing the cut is the point.
+- **The cap governs next week too.** A wrap that rolls everything forward and blows past the weekly task cap has failed — forcing the cut is the point.
 - **No spin on slippage.** Name the real reason; the user can't fix a week they can't see straight.
 - **Plan, don't execute.** Set up next week; don't start doing it.
 - **Stay in the folder.**
