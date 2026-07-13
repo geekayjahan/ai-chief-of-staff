@@ -98,6 +98,10 @@ Invoke skills proactively when the task matches. Don't wait for {{USER_NAME}} to
 
 | Trigger | Skill |
 |---------|-------|
+| Brain/voice dump — offloading tasks, ideas, worries | `capture` |
+| "Where am I" / start of a working session / morning | `daily-brief` |
+| End of week / weekly review / "wrap the week" | `friday-wrap` |
+| "Connect my calendar/tasks" / sharpen the brief with a real app | `connect` |
 | Creating a slide deck | `pptx` |
 | Creating a Word doc | `docx` |
 | Working with a PDF | `pdf` |
