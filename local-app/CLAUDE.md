@@ -92,15 +92,13 @@ Goal hierarchy ({{CURRENT_MONTH_YEAR}} — check GOALS.md for current):
 
 ---
 
-## SKILLS — WHEN TO INVOKE THEM
+## COMMANDS — HOW I RESPOND
 
-Invoke skills proactively when the task matches. Don't wait for {{USER_NAME}} to ask.
+This is the local-app build — there's no plugin or tool system here, so the behaviours are written out in [COMMANDS.md](COMMANDS.md). Read it, and act on these triggers proactively:
 
-| Trigger | Skill |
-|---------|-------|
-| Creating a slide deck | `pptx` |
-| Creating a Word doc | `docx` |
-| Working with a PDF | `pdf` |
-| Spreadsheet work | `xlsx` |
-| Setting a recurring reminder | `schedule` |
-| Memory files getting long or stale | `consolidate-memory` |
+| When {{USER_NAME}} says… | Do this (see COMMANDS.md) |
+|---|---|
+| a brain/voice dump — offloading tasks, ideas, worries | **Capture** — file it verbatim into `BRAIN_DUMP.md`, don't sort |
+| "where am I" / start of a session / morning | **Daily brief** — route new captures, then re-orient in 3 sentences |
+| end of week / "wrap the week" | **Friday wrap** — score the week, roll forward under the cap, goals check |
+| "here's my calendar/tasks" — pasted context | **Connect** — fold it into the brief; least-privilege by nature (you only pasted what you chose) |
