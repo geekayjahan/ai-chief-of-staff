@@ -1,0 +1,9 @@
+{
+  "name": "solo-project-manager",
+  "version": "0.1.0",
+  "description": "An EA-style project manager for solo operators running multiple projects. Holds the plan, surfaces the right thing at the right moment, defends weekly task caps, and processes brain dumps. Installs as a folder of templates personalised through guided onboarding.",
+  "author": {
+    "name": "Solo Project Manager"
+  },
+  "keywords": ["productivity", "project-management", "solo", "founder", "ea", "planning"]
+}
