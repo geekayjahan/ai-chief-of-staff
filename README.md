@@ -54,15 +54,12 @@ Grab `local-app/` (or `solo-chief-of-staff-local.zip`) and follow [`local-app/RU
 
 ---
 
-## Presenter notes (30-min timing)
+## Session flow — how to run it
 
-| Time | Beat |
-|---|---|
-| ~4 min | Hook + read the plain-English spec (`app/plugin-spec.md`) |
-| ~10 min | Build `capture` + `daily-brief` live — dump → three-sentence brief |
-| ~5 min | Add `friday-wrap` — close a week under the cap |
-| ~4 min | `connect` — least-privilege read-only app pull *(skippable if tight)* |
-| ~4 min | Port: `./build-plugin.sh`, install the `.plugin` in Claude Desktop |
-| ~3 min | Publish: hand out `local-app/` for anyone without Claude |
+Once installed, a working session goes like this:
 
-Onboarding has many phases — for the live demo, answer Phase 1 + two projects fast and skip POV/Voice (they're built to be filled later). Students walk out with a working plugin and a template to reshape for other use cases.
+1. **Onboard once** — say **"set up my project manager."** Answer the phases (you · projects · goals · guardrails); it writes your personalised files. You only do this the first time.
+2. **Open with** — **"where am I?"** → the three-sentence daily brief plus today's one thing.
+3. **Dump anytime** — just talk at it. `capture` files the brain dump verbatim; the next brief routes it.
+4. **Close the week** — say **"friday wrap."** It scores the week, rolls unfinished work forward under the cap, and checks it against your goals.
+5. **Optional** — say **"connect my calendar"** (or tasks) for a read-only pull from one app.
