@@ -1,14 +1,14 @@
 # AI Chief of Staff — build a Claude plugin from plain words
 
-A ~30-minute lightning lesson. You start with a plain-English spec and, one capability at a time, build a **Claude plugin** that acts as your chief of staff: take a voice dump, get a three-sentence **daily brief** and a **Friday wrap**, and keep a weekly task cap honest — connecting to the apps you already use **without handing over the keys**. No code.
+Build a **Claude plugin** that acts as your chief of staff: take a voice dump, get a three-sentence **daily brief** and a **Friday wrap**, and keep a weekly task cap honest — connecting to the apps you already use **without handing over the keys**. No code.
 
-Then you ship it two ways: **ported into Claude Desktop** as a plugin, and — for anyone without Claude Code or Claude Desktop — **published as a local app** (a plain folder any chat assistant can run).
+It ships two ways: **ported into Claude Desktop** as a plugin, and — for anyone without Claude Code or Claude Desktop — **published as a local app** (a plain folder any chat assistant can run).
 
 Built for people juggling several projects at once: hustling toward a new job or their own thing, and especially neurodivergent operators who just want to talk at something and have it sort the priorities out.
 
 ---
 
-## The arc (what the live build follows)
+## The arc
 
 ```
 plain-English spec  →  build capabilities, one at a time  →  port to Claude Desktop  →  publish as a local app
