@@ -1,6 +1,6 @@
 # AI Chief of Staff — lightning-lesson repo
 
-This repo is a ~30-minute lightning lesson: build a **Claude plugin** from a plain-English spec, port it to Claude Desktop, and publish it as a local app. Start at [`README.md`](README.md).
+This repo builds a **Claude plugin** from a plain-English spec, ports it to Claude Desktop, and publishes it as a local app. Start at [`README.md`](README.md).
 
 - **The spec** is [`app/plugin-spec.md`](app/plugin-spec.md) — plain English, no code. The build follows it one capability at a time.
 - **The plugin source** lives in `plugins/solo-project-manager/` (manifest + skills + templates). Edit there, then run `./build-plugin.sh` to repack `solo-project-manager.plugin` — never hand-edit the `.plugin` zip.
