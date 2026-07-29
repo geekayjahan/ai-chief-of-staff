@@ -1,27 +1,3 @@
-# SQLite snapshot - SUB-2 storage, never commit
-app/data/snapshot.db
-app/data/snapshot.db-journal
-app/data/snapshot.db-wal
-app/data/snapshot.db-shm
-
-# Observability trace - SUB-6 JSONL, never commit
-app/data/trace.jsonl
-
-# Node / Next.js
-node_modules/
-.next/
-out/
-.turbo/
-*.tsbuildinfo
-next-env.d.ts
-
-# Python
-__pycache__/
-*.pyc
-.venv/
-venv/
-*.egg-info/
-
 # OS / editor
 .DS_Store
 Thumbs.db
@@ -30,19 +6,12 @@ Thumbs.db
 *.swp
 *.log
 
-# Local backup of modules/ — rollback escape hatch, never commit
-modules.bak/
-
 # Secrets
 .env
 .env.local
 .env*.local
 
-# Dashboard session data - regenerated every run, never commit
-app/comments.json
-app/eval-runs.json
-app/qa.json
-app/qa-settings.json
-
-# Eval dashboard error-analysis notes - regenerated each run, never commit
-app/eval-annotations.json
+# Personalised PM installs. Your own PM should live outside this kit,
+# but ignore the common local install spots just in case.
+/my-pm/
+/pm/
