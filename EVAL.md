@@ -1,6 +1,6 @@
 # Eval
 
-A binary rubric for this kit. Thirty-one criteria, each answerable yes or no, five of which are
+A binary rubric for this kit. Thirty-five criteria, each answerable yes or no, five of which are
 gates that block on their own.
 
 Run it after any change worth arguing about. Write the results to `EVAL-RESULTS.md` with a date,
@@ -120,8 +120,8 @@ is what makes this a system rather than two prompts. Everything else is a defect
 reason to stop.
 
 - Any gate failing means not ready to teach, whatever the tally says.
-- The rest report as a tally out of 26.
-- Verdict line: `GATES: n/5 · TALLY: n/26 · VERDICT: ship | fix-first | rebuild`.
+- The rest report as a tally out of 30.
+- Verdict line: `GATES: n/5 · TALLY: n/30 · VERDICT: ship | fix-first | rebuild`.
 
 Every fail carries one line of evidence, either a file and line or the count that settled it. A
 fail without evidence gets dropped. It is an opinion.
@@ -138,5 +138,5 @@ fail without evidence gets dropped. It is an opinion.
 
 The deletion tests are the most valuable in the rubric and the easiest to skip. Do not skip them.
 
-One sanity check on the rubric itself: it should never return 31 out of 31 on first contact. A
+One sanity check on the rubric itself: it should never return 35 out of 35 on first contact. A
 rubric that passes everything is measuring nothing.
