@@ -7,7 +7,7 @@ description: Pulls context from ONE app the user already uses (calendar or task 
 
 ## What this skill does
 
-Sharpens the daily brief with real signal from one app the user already lives in — today's calendar, or an external task list — without handing the assistant broad reach into their accounts. The guarantee students should walk away with: *you can connect an assistant to your apps without giving it the keys.*
+Sharpens the daily brief with real signal from one app the user already lives in — today's calendar, or an external task list — without handing the assistant broad reach into their accounts. The guarantee: *you can connect an assistant to your apps without giving it the keys.*
 
 ## The least-privilege rule (the whole point)
 

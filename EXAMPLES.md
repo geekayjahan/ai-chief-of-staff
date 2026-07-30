@@ -41,8 +41,8 @@ the reply to Sam becomes a task, the repetition collapses into one item, and "I 
 whether we've scoped this way too big" is kept as an open question rather than turned into a task
 you never asked for. Anything it cannot place comes back as one question.
 
-This is the one to demo live. It is the clearest illustration of the whole system: messy input,
-sorted output, nothing invented.
+Try this one first. It is the clearest illustration of the whole system: messy input, sorted
+output, nothing invented.
 
 ---
 
@@ -107,7 +107,7 @@ so it should already know where you stopped.
 
 **Not good:** a status report on every project, or a greeting and a preamble before the first
 real line. Also not good: stalling or complaining because you have no calendar connected. It is
-built to run on the PM files alone, which is how you should demo it.
+built to run on the PM files alone, so connect nothing until the brief is already useful.
 
 ---
 
@@ -121,9 +121,9 @@ Run the Friday wrap.
 capped project, and next week rebuilt against the cap with the cut named rather than everything
 quietly fitted in.
 
-Then the part worth demoing: ask for the morning brief straight afterwards. It should open from
-the handoff the wrap just wrote. That round trip, wrap writes and brief reads, is the system
-working rather than two separate tricks.
+Then the part worth seeing: ask for the morning brief straight afterwards. It should open from the
+handoff the wrap just wrote. That round trip, wrap writes and brief reads, is the system working
+rather than two separate tricks.
 
 ---
 

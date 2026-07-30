@@ -8,4 +8,3 @@ This repo is a ~30-minute lightning lesson: build a **Claude plugin** from a pla
 - **The install kit** is `templates/` — the alternate variant's templates, refined. Work/personal session modes, the three routines written into the installed `CLAUDE.md` rather than shipped as skills, and onboarding that shows the user a spec before it writes anything. This is what students install from; `SESSION-FLOW.md`, `PROMPTS.md`, and `EXAMPLES.md` are its docs.
 - **Capabilities are skills, not code** — each is a markdown `SKILL.md`. Keep them read-only-and-plan in spirit: the assistant plans and re-orients, it never executes project work, and app integration stays least-privilege (read-only, one app, narrow slice).
 - Keys/credentials live in `.env` only (gitignored; template in `.env.example`).
-- `archive/` holds the earlier Product-Builder workshop kit — not part of this lesson; ignore unless reviving it.

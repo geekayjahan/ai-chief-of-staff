@@ -1,6 +1,6 @@
 # AI Chief of Staff — plain-English spec
 
-*This is the whole spec. The live build turns it into a Claude plugin, one capability at a time. No code.*
+*This is the whole spec. The build turns it into a Claude plugin, one capability at a time. No code.*
 
 ## Who it's for
 

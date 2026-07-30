@@ -66,17 +66,3 @@ Then follow [`SESSION-FLOW.md`](SESSION-FLOW.md) — it covers installing your o
 
 Grab `local-app/` (or `solo-chief-of-staff-local.zip`) and follow [`local-app/RUN-LOCALLY.md`](local-app/RUN-LOCALLY.md): onboard once by pasting `ONBOARDING.md` into any assistant, then each session paste `CLAUDE.md` and talk to it. Same behaviour, nothing installed.
 
----
-
-## Presenter notes (30-min timing)
-
-| Time | Beat |
-|---|---|
-| ~4 min | Hook + read the plain-English spec (`app/plugin-spec.md`) |
-| ~10 min | Build `capture` + `daily-brief` live — dump → three-sentence brief |
-| ~5 min | Add `friday-wrap` — close a week under the cap |
-| ~4 min | `connect` — least-privilege read-only app pull *(skippable if tight)* |
-| ~4 min | Port: `./build-plugin.sh`, install the `.plugin` in Claude Desktop |
-| ~3 min | Publish: hand out `local-app/` for anyone without Claude |
-
-Onboarding has many phases — for the live demo, answer Phase 1 + two projects fast and skip POV/Voice (they're built to be filled later). Students walk out with a working plugin and a template to reshape for other use cases.
