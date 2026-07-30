@@ -91,7 +91,7 @@ Ask:
 
 Capture: `USER_FAILURE_MODES`, `USER_DECISION_FATIGUE`, `USER_COLLABORATION_DYNAMICS`, `USER_ENERGY_RHYTHMS`.
 
-### Phase 8 — Write the files
+### Phase 6 — Write the files
 
 Read each template from `templates/`. Substitute placeholders. Write to the install folder.
 
@@ -198,7 +198,7 @@ If both `CAPPED_PROJECT_HARD_RULE` and `ADDITIONAL_HARD_RULES` are present, rend
 
 **Per-project sub-agent placeholders** (in project-template/CLAUDE-*.md):
 
-**`PROJECT_CAP_REASON`** (only in with-cap variant): the one-sentence reason captured in Phase 3.
+**`PROJECT_CAP_REASON`** (only in with-cap variant): the one-sentence reason captured in Phase 2.
 
 **`TASKS_HEADER_CAP_NOTE`** (in PROJECT_TASKS.md):
 - If capped: ` | Cap: {{PROJECT_HOURS_CAP}} hours/week`
@@ -208,7 +208,7 @@ If both `CAPPED_PROJECT_HARD_RULE` and `ADDITIONAL_HARD_RULES` are present, rend
 - If capped: `**This week's hours:** 0/{{PROJECT_HOURS_CAP}} used.`
 - Else: empty string.
 
-### Phase 9 — Confirm and close
+### Phase 7 — Confirm and close
 
 After writing all files, summarise:
 
