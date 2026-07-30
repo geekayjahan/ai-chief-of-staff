@@ -35,16 +35,7 @@ Ask:
 
 Capture: `USER_NAME`, `USER_NAME_UPPER` (uppercase), `USER_ONE_LINER`, `USER_OPERATING_NOTES`.
 
-### Phase 2 — Do you publish content or teach?
-
-Ask one question:
-
-**"Do any of your projects involve publishing content, teaching, building a public voice, or selling something where the audience's perception matters?"**
-
-- If **yes** → set `CONTENT_LAYER = true`. The skill will install three additional files (`USER_POV.md`, `USER_VOICE.md`, `USER_FRONTIER.md`) and ask the related questions in Phase 6.
-- If **no** → set `CONTENT_LAYER = false`. Skip those files entirely. Skip Phase 6.
-
-### Phase 3 — Your projects
+### Phase 2 — Your projects
 
 Ask the user to list active projects. For each, collect:
 
@@ -70,7 +61,7 @@ Capture: `PROJECTS[]` with fields `name, emoji, context, role, role_description,
 
 `PROJECT_COUNT` = `len(PROJECTS)`.
 
-### Phase 4 — Rules of the cockpit
+### Phase 3 — Rules of the cockpit
 
 Ask:
 
@@ -80,7 +71,7 @@ Ask:
 
 Capture: `WEEKLY_TASK_CAP`, `ADDITIONAL_HARD_RULES` (one-line bullets for CLAUDE.md), `ADDITIONAL_HARD_RULES_BODY` (fuller text for USER_GUARDRAILS.md if more nuance was given — otherwise same as one-liners).
 
-### Phase 5 — Goals and roadmap
+### Phase 4 — Goals and roadmap
 
 For each project, ask:
 
@@ -89,26 +80,7 @@ For each project, ask:
 
 Capture: `WORK_NINETY_DAY_HORIZON[]`, `PERSONAL_NINETY_DAY_HORIZON[]`, `WORK_GOAL_HIERARCHY[]`, `PERSONAL_GOAL_HIERARCHY[]`.
 
-### Phase 6 — POV and voice (only if CONTENT_LAYER = true)
-
-Tell the user: "These shape every piece of writing the PM helps with. You can skip and fill later. If you skip, the PM won't filter content through anything specific to you."
-
-1. **Central lens** — one sentence everything you make traces back to.
-2. **3–5 core theses** — beliefs you hold that most others in your space don't.
-3. **Contrarian takes** — where you push back on received wisdom.
-4. **What you are NOT** — positioning by exclusion.
-5. **Distinctive phrases / framings** that are uniquely yours.
-6. **Writing patterns to never use.** Defaults: AI-pattern phrases ("X lands", "It's X not Y", "Not x, not y — but z", "That's exactly where", "In a world where"), em dashes in external copy, billboard fragments, rambling. Ask if anything to add or remove.
-7. **Always do** — counterpart positive rules.
-8. **How you write** — 3–5 structural patterns you've noticed in your own work.
-9. **For each project flagged 'has audience' (Phase 3 role hints at external audience):** who they are, what they fear, what they want to believe, language they use, what makes them buy/subscribe/trust.
-10. **Your tone at your best** — 3–5 bullets.
-
-If the user skips any, leave `→ fill when ready` in the corresponding section. Don't make up content.
-
-Capture: `USER_CENTRAL_LENS`, `USER_CORE_THESES`, `USER_CONTRARIAN_TAKES`, `USER_NOT_LIST`, `USER_PHRASES`, `USER_BANNED_PATTERNS` (bulleted), `USER_ALWAYS_PATTERNS` (bulleted), `USER_WRITING_PATTERNS`, `CONTENT_PROJECT_AUDIENCES` (block per project), `USER_TONE`.
-
-### Phase 7 — Guardrails
+### Phase 5 — Guardrails
 
 Ask:
 
@@ -135,14 +107,6 @@ Read each template from `templates/`. Substitute placeholders. Write to the inst
 | `ROADMAP.md` | `templates/ROADMAP.md` |
 | `BRAIN_DUMP.md` | `templates/BRAIN_DUMP.md` |
 | `USER_GUARDRAILS.md` | `templates/USER_GUARDRAILS.md` |
-
-**Content layer files (only if `CONTENT_LAYER = true`):**
-
-| File | Source template |
-|------|-----------------|
-| `USER_POV.md` | `templates/content-optional/USER_POV.md` |
-| `USER_VOICE.md` | `templates/content-optional/USER_VOICE.md` |
-| `USER_FRONTIER.md` | `templates/content-optional/USER_FRONTIER.md` |
 
 **Per project**, create a subfolder named `kebab-case(project.name)` containing:
 
@@ -193,38 +157,6 @@ If both `CAPPED_PROJECT_HARD_RULE` and `ADDITIONAL_HARD_RULES` are present, rend
 - Same content, may include longer explanations if user gave them.
 - Else: empty string.
 
-**`CONTENT_LAYER_SECTION`** (in root CLAUDE.md):
-- If `CONTENT_LAYER = true`:
-  ```
-  ## CONTENT AND WRITING
-
-  Before helping with any content, copy, or communication:
-  1. Read [USER_VOICE.md](USER_VOICE.md) — writing rules and audience per project
-  2. Read [USER_POV.md](USER_POV.md) — filter all content through their POV
-  3. Never produce AI-patterned writing. See USER_VOICE.md for the specific patterns to avoid.
-
-  ---
-  ```
-- Else: empty string.
-
-**`CONTENT_LAYER_FILE_ROWS`** (in root CLAUDE.md, KEY FILES table):
-- If `CONTENT_LAYER = true`:
-  ```
-  | [USER_POV.md](USER_POV.md) | Spiky POV — content filter |
-  | [USER_VOICE.md](USER_VOICE.md) | Writing rules + audiences |
-  | [USER_FRONTIER.md](USER_FRONTIER.md) | Frontier research synthesis |
-  ```
-- Else: empty string.
-
-**`CONTENT_LAYER_FILE_ROWS_HQ`** (in PROJECT_HQ.md, USER LAYER table):
-- If `CONTENT_LAYER = true`:
-  ```
-  | [USER_POV.md](USER_POV.md) | Spiky POV — filters all content and positioning | Review monthly |
-  | [USER_VOICE.md](USER_VOICE.md) | Writing rules + audience per project | Update as audiences sharpen |
-  | [USER_FRONTIER.md](USER_FRONTIER.md) | Research signals — live synthesis | Add as you learn |
-  ```
-- Else: empty string.
-
 **`TIME_ENVELOPES`** (in root CLAUDE.md):
 - One bullet per project: `- {{PROJECT_NAME}}: {{X}} hrs/week ({{cap_type}})` where cap_type is "hard cap" or "soft target". If neither given, omit the project.
 
@@ -264,17 +196,6 @@ If both `CAPPED_PROJECT_HARD_RULE` and `ADDITIONAL_HARD_RULES` are present, rend
 **`PROJECT_FILE_TABLE_ROWS`** (in root CLAUDE.md, KEY FILES table):
 - One row per project: `| {{kebab-case-name}}/{{PROJECT_FILENAME}} | {{project.role}} ({{project.context}}) |`
 
-**`CONTENT_PROJECT_AUDIENCES`** (in USER_VOICE.md, only if CONTENT_LAYER = true):
-- One block per project the user gave audience info for:
-  ```
-  ### {{project.emoji}} {{project.name}}
-  - **Who they are:** ...
-  - **What they fear:** ...
-  - **What they want to believe:** ...
-  - **Language they use:** ...
-  - **What makes them buy / subscribe / trust:** ...
-  ```
-
 **Per-project sub-agent placeholders** (in project-template/CLAUDE-*.md):
 
 **`PROJECT_CAP_REASON`** (only in with-cap variant): the one-sentence reason captured in Phase 3.
@@ -292,7 +213,7 @@ If both `CAPPED_PROJECT_HARD_RULE` and `ADDITIONAL_HARD_RULES` are present, rend
 After writing all files, summarise:
 
 - Folder location
-- Number of files written (split: core, content-layer, per-project)
+- Number of files written (split: core, per-project)
 - What's filled, what's still skeleton
 - Tell the user: open the folder in a fresh session. The root `CLAUDE.md` will ask the session-mode question (work / personal / both) and run the rest of the ritual.
 
@@ -350,9 +271,6 @@ End with a single concrete next step. No bullet-point summary of everything that
 | `{{CAPPED_PROJECT_HARD_RULE}}` | Hard-rule line (empty if no caps) |
 | `{{ADDITIONAL_HARD_RULES}}` | Extra rule bullets (empty if none) |
 | `{{ADDITIONAL_HARD_RULES_BODY}}` | Same for GUARDRAILS file |
-| `{{CONTENT_LAYER_SECTION}}` | "CONTENT AND WRITING" block (empty if no content layer) |
-| `{{CONTENT_LAYER_FILE_ROWS}}` | KEY FILES rows for POV/VOICE/FRONTIER (empty if no content layer) |
-| `{{CONTENT_LAYER_FILE_ROWS_HQ}}` | Same in PROJECT_HQ (empty if no content layer) |
 
 ### Guardrails
 | Placeholder | Filled with |
@@ -361,20 +279,6 @@ End with a single concrete next step. No bullet-point summary of everything that
 | `{{USER_DECISION_FATIGUE}}` | Decision-fatigue patterns |
 | `{{USER_COLLABORATION_DYNAMICS}}` | Per-partner notes |
 | `{{USER_ENERGY_RHYTHMS}}` | Energy patterns |
-
-### Content layer (only if CONTENT_LAYER = true)
-| Placeholder | Filled with |
-|-------------|-------------|
-| `{{USER_CENTRAL_LENS}}` | One-sentence central lens |
-| `{{USER_CORE_THESES}}` | 3–5 numbered theses |
-| `{{USER_CONTRARIAN_TAKES}}` | Contrarian positions |
-| `{{USER_NOT_LIST}}` | What user is NOT (bullets) |
-| `{{USER_PHRASES}}` | Distinctive phrases (bullets) |
-| `{{USER_BANNED_PATTERNS}}` | Writing patterns to avoid (bullets) |
-| `{{USER_ALWAYS_PATTERNS}}` | Writing patterns to follow (bullets) |
-| `{{USER_WRITING_PATTERNS}}` | How they write — structural observations |
-| `{{USER_TONE}}` | Tone bullets |
-| `{{CONTENT_PROJECT_AUDIENCES}}` | Audience blocks per project |
 
 ### Per project (filled per-project when iterating)
 | Placeholder | Filled with |
@@ -403,7 +307,7 @@ End with a single concrete next step. No bullet-point summary of everything that
 
 - **Never invent content.** If the user skipped a section, write `→ fill when ready`. Don't make up theses, audiences, guardrails, statuses.
 - **Preserve the structure.** Don't omit sections or rename them — they're load-bearing.
-- **Use the user's exact words** where possible. Don't paraphrase POV or voice.
+- **Use the user's exact words** where possible. Don't paraphrase their statuses or guardrails.
 - **Date headers** use `YYYY-MM-DD`.
 - **Project subfolder names** are kebab-case (`content-engine`, `family`, `motivated-code`).
 - **Project file names** are SCREAMING_SNAKE_CASE (`CONTENT_ENGINE.md`).

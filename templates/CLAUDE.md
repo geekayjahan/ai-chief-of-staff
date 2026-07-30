@@ -68,8 +68,6 @@ If BRAIN_DUMP.md has unprocessed content, flag it and ask if they want to proces
 
 ---
 
-{{CONTENT_LAYER_SECTION}}
-
 ## PRIORITISATION LOGIC
 
 One question: *if this doesn't happen this week, what breaks?*
@@ -92,20 +90,16 @@ Priority hierarchy ({{CURRENT_MONTH_YEAR}} — check GOALS.md for current):
 | [ROADMAP.md](ROADMAP.md) | 90-day milestone bridge |
 | [BRAIN_DUMP.md](BRAIN_DUMP.md) | Unified inbox — process and clear |
 | [USER_GUARDRAILS.md](USER_GUARDRAILS.md) | Failure modes + hard rules |
-{{CONTENT_LAYER_FILE_ROWS}}
 {{PROJECT_FILE_TABLE_ROWS}}
 
 ---
 
-## SKILLS — WHEN TO INVOKE THEM
+## CAPABILITIES — WHEN TO INVOKE THEM
 
-Invoke skills proactively when the task matches. Don't wait for {{USER_NAME}} to ask.
+Invoke these proactively when the moment matches. Don't wait for {{USER_NAME}} to ask.
 
-| Trigger | Skill |
-|---------|-------|
-| Creating a slide deck | `pptx` |
-| Creating a Word doc | `docx` |
-| Working with a PDF | `pdf` |
-| Spreadsheet work | `xlsx` |
-| Setting a recurring reminder | `schedule` |
-| Memory files getting long or stale | `consolidate-memory` |
+| Trigger | Capability |
+|---------|-----------|
+| A voice memo or a raw unstructured dump | `voice-dump` |
+| Start of the day, or "where am I" | `daily-brief` |
+| End of the week, or the week needs closing | `friday-wrap` |

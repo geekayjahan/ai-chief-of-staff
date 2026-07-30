@@ -57,4 +57,3 @@
 | File | Purpose | Cadence |
 |------|---------|---------|
 | [USER_GUARDRAILS.md](USER_GUARDRAILS.md) | Known failure modes + hard rules | Claude checks at session start |
-{{CONTENT_LAYER_FILE_ROWS_HQ}}
