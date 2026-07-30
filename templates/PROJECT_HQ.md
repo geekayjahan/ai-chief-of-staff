@@ -50,11 +50,10 @@
 | [WEEKLY_PLAN.md](WEEKLY_PLAN.md) | {{WEEKLY_TASK_CAP}}-task weekly contract | Every Monday |
 | [GOALS.md](GOALS.md) | Priority hierarchy + 90-day horizon | Every month |
 | [ROADMAP.md](ROADMAP.md) | 90-day milestone bridge per project | Monthly |
-| [BRAIN_DUMP.md](BRAIN_DUMP.md) | Raw inbox — nothing lives here | On demand |
+| [VOICE_DUMP.md](VOICE_DUMP.md) | Raw inbox — nothing lives here | On demand |
 | [STATUS.md](STATUS.md) | Session handoff — next tasks and state | Each session |
 
 ## USER LAYER
 | File | Purpose | Cadence |
 |------|---------|---------|
 | [USER_GUARDRAILS.md](USER_GUARDRAILS.md) | Known failure modes + hard rules | Claude checks at session start |
-{{CONTENT_LAYER_FILE_ROWS_HQ}}

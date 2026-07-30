@@ -4,7 +4,7 @@ Paste the prompt below into Claude, ChatGPT, Gemini, or any LLM that can read yo
 
 ## Prompt to give the model
 
-> You are helping me set up a personal Project Manager system in this folder. The templates have `{{PLACEHOLDER}}` markers. Walk me through the onboarding questions below in order. Ask one phase at a time. Don't move on until I've answered. When I've answered all phases, fill in every template file by substituting placeholders and writing my answers into the prose sections. Never make up content — if I skip a section, leave a `→ fill when ready` marker. Render two-section files (PROJECT_HQ, WEEKLY_PLAN, GOALS, ROADMAP) with both Work and Personal halves populated from the projects I tagged. Once done, summarise what was written and where, and tell me to open this folder in a fresh session.
+> You are helping me set up a personal Project Manager system in this folder. The templates have `{{PLACEHOLDER}}` markers. Walk me through the onboarding questions below in order. Ask one phase at a time. Don't move on until I've answered. When I've answered all phases, fill in `SPEC.md` and show it to me — do not write any other file until I have confirmed it. Once I say yes, fill in every remaining template file by substituting placeholders and writing my answers into the prose sections. Never make up content — if I skip a section, leave a `→ fill when ready` marker. Render two-section files (PROJECT_HQ, WEEKLY_PLAN, GOALS, ROADMAP) with both Work and Personal halves populated from the projects I tagged. Once done, summarise what was written and where, and tell me to open this folder in a fresh session.
 
 ## The onboarding phases
 
@@ -16,12 +16,7 @@ If you're running this in a separate folder from the templates, confirm where pe
 2. Describe yourself in one or two sentences — role, mode of working, key trait.
 3. Anything important about how you work or communicate?
 
-### Phase 2 — Do you publish content or teach?
-Single question: **Do any of your projects involve publishing content, teaching, building a public voice, or selling something where the audience's perception matters?**
-- Yes → install three optional files (USER_POV.md, USER_VOICE.md, USER_FRONTIER.md) and ask the related questions in Phase 6.
-- No → skip those files entirely. Skip Phase 6.
-
-### Phase 3 — Your projects
+### Phase 2 — Your projects
 For each active project:
 - Name and optional emoji
 - **Context: work / personal / both** (required — drives session-mode filtering)
@@ -37,38 +32,37 @@ For each active project:
 
 Push for specifics. Skip rather than fake.
 
-### Phase 4 — Rules of the cockpit
+### Phase 3 — Rules of the cockpit
 1. Weekly task cap? (default 7, across work + personal)
-2. Brain dump cadence? (default: each session)
+2. Voice dump cadence? (default: each session)
 3. Any extra hard rules to enforce?
 
-### Phase 5 — Goals and roadmap
+### Phase 4 — Goals and roadmap
 1. For each project, what does success look like in 90 days?
 2. Priority hierarchy with role labels, separate for work and personal.
 
-### Phase 6 — POV and voice (only if you said yes in Phase 2)
-1. Central lens — one sentence everything you make traces back to.
-2. 3–5 core theses — beliefs you hold that most others don't.
-3. Contrarian takes — where you push back on received wisdom.
-4. What you are NOT — positioning by exclusion.
-5. Distinctive phrases / framings.
-6. Writing patterns to never use. Defaults: AI-pattern phrases ("X lands", "Not x, not y — but z", "That's exactly where", "In a world where"), em dashes in external copy, billboard fragments, rambling.
-7. Always do — counterpart positive rules.
-8. How you write — structural patterns.
-9. For each project with an external audience: who they are, what they fear, what they want to believe, language they use, what makes them buy/subscribe/trust.
-10. Your tone at your best.
-
-### Phase 7 — Guardrails
+### Phase 5 — Guardrails
 1. Known failure modes — name each pattern with a "Flag when:" and "Redirect:" line.
 2. Decision fatigue patterns.
 3. Collaboration dynamics — per partnered project.
 4. Energy and focus rhythms (optional).
 
+### Phase 6 — The spec
+Before writing anything else, fill in `SPEC.md` and show it to me in full. It reflects back the projects, the cap, the rules, the guardrails, the three routines, what the assistant will refuse to do, and what I skipped.
+
+Then ask one question: does this match, or what needs changing?
+
+- If I confirm, write everything else.
+- If I correct something, fix it, re-ask the phase it belongs to if needed, and show me only the part that changed.
+- If I skim and say it's fine, take it. This is a gate, not an exam.
+
+Point at the "still blank" section directly. It's my last cheap chance to fill something in.
+
 ## What to write
 
-**Root files** (always): `CLAUDE.md`, `STATUS.md`, `PROJECT_HQ.md`, `WEEKLY_PLAN.md`, `GOALS.md`, `ROADMAP.md`, `BRAIN_DUMP.md`, `USER_GUARDRAILS.md`.
+**Root files** (always): `CLAUDE.md`, `STATUS.md`, `PROJECT_HQ.md`, `WEEKLY_PLAN.md`, `GOALS.md`, `ROADMAP.md`, `VOICE_DUMP.md`, `USER_GUARDRAILS.md`, `MORNING_BRIEF.md`, `FRIDAY_WRAP.md`, `SPEC.md`.
 
-**Content layer** (only if Phase 2 was yes): copy the three files from `content-optional/` to the root.
+`SPEC.md` is written first and confirmed before the rest. Everything else is written in one go after that yes.
 
 **Per project**: Create a subfolder (kebab-case name) and copy from `project-template/`:
 - `CLAUDE.md` — use `CLAUDE-with-cap.md` if the project has a hard cap, else `CLAUDE-no-cap.md`
@@ -77,9 +71,9 @@ Push for specifics. Skip rather than fake.
 - `<PROJECT>_LOG.md` — only if the project has a hard cap
 
 ### Filename derivation
-For project "Content Engine":
-- Subfolder: `content-engine`
-- Files: `CONTENT_ENGINE.md`, `CONTENT_ENGINE_TASKS.md`, `CONTENT_ENGINE_LOG.md`
+For project "Website Redesign":
+- Subfolder: `website-redesign`
+- Files: `WEBSITE_REDESIGN.md`, `WEBSITE_REDESIGN_TASKS.md`, `WEBSITE_REDESIGN_LOG.md`
 
 For project "Family":
 - Subfolder: `family`
@@ -94,7 +88,6 @@ If a context has no projects, render `_No projects in this context yet._` under 
 Some placeholders should be empty strings (or the whole line deleted) when their condition isn't met:
 - `CAPPED_PROJECT_INSTRUCTION` / `CAPPED_PROJECT_HARD_RULE` — empty if no project has a cap
 - `ADDITIONAL_HARD_RULES` / `ADDITIONAL_HARD_RULES_BODY` — empty if no extra rules given
-- `CONTENT_LAYER_SECTION` / `CONTENT_LAYER_FILE_ROWS` / `CONTENT_LAYER_FILE_ROWS_HQ` — empty if content layer is off
 - `TASKS_HEADER_CAP_NOTE` / `TASKS_HOURS_LINE` — empty for uncapped projects
 
 When a conditional placeholder is inside a markdown table, delete the whole line including its newline; otherwise the blank line ends the table.

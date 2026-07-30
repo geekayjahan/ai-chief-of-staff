@@ -37,7 +37,21 @@ plain-English spec  →  build capabilities, one at a time  →  port to Claude 
 | `build-plugin.sh` | packs the source folder → `.plugin` |
 | `local-app/` | the standalone folder for any LLM (see [`RUN-LOCALLY.md`](local-app/RUN-LOCALLY.md)) |
 | `solo-chief-of-staff-local.zip` | the local app as a downloadable |
-| `everyday-pm-templates/` · `everyday-pm.plugin` | alternate variant (adds work/personal mode) — a second example to compare against `solo` |
+| `templates/` | the install kit students use — work/personal mode, routines written into `CLAUDE.md`, spec-gated onboarding |
+| `SESSION-FLOW.md` · `PROMPTS.md` · `EXAMPLES.md` | docs for `templates/` — how a session runs, what to paste, what good answers look like |
+| `everyday-pm.plugin` | alternate variant (adds work/personal mode) — a second example to compare against `solo` |
+
+---
+
+## Get the files
+
+```
+git clone https://github.com/geekayjahan/ai-chief-of-staff.git
+```
+
+No git? Use the green **Code → Download ZIP** button on this page, then unzip.
+
+Then follow [`SESSION-FLOW.md`](SESSION-FLOW.md) — it covers installing your own chief of staff and putting the morning brief on a schedule.
 
 ---
 
