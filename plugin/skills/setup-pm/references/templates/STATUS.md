@@ -4,7 +4,7 @@
 ---
 
 ## WHAT'S DONE
-- [x] Project Manager system installed and personalised
+- [x] AI Chief of Staff installed and personalised
 
 ---
 

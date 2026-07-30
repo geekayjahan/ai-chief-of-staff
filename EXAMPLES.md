@@ -1,6 +1,6 @@
 # Example use cases
 
-Real things to try once your PM is installed, with what a good answer looks like. If you are
+Real things to try once your chief of staff is running, with what a good answer looks like. If you are
 evaluating whether this is worth the setup, work through the first three. They are where the
 difference shows.
 
@@ -107,7 +107,7 @@ stopped.
 
 **Not good:** a status report on every project, or a greeting and a preamble before the first
 real line. Also not good: stalling or complaining because you have no calendar connected. It is
-built to run on the PM files alone, which is how you should demo it.
+built to run on your files alone, which is how you should demo it.
 
 ---
 
@@ -157,3 +157,6 @@ and give each one a concrete "flag when" line.
 The assistant is working if it says less than you expected, asks before routing something
 ambiguous, and refuses things. An assistant that agrees with every addition to your week is a
 list, and you already had one of those.
+
+Work through the first three cases in your first week. Then stop testing it and let it run —
+the Friday wrap will tell you whether the loop is holding.

@@ -1,149 +1,100 @@
 # AI Chief of Staff
 
-An EA-style project manager you install once and then talk to. It holds the plan, tells you the
-one thing worth doing, processes what you dump on it, and stops you working on the wrong thing.
+An assistant you build once and then talk to. It interviews you, holds your plan, tells you the
+one thing worth doing, and shows up on its own: a brief every morning, a wrap every Friday.
 
-It is opinionated by design. A weekly task cap you cannot quietly exceed, a cockpit that has to
-stay readable at a glance, a brain dump that gets cleared every session, and work and personal
-kept apart so only one is in front of you at a time. These are inherited defaults, not settings.
+This kit is a lesson, not just a product. You are here to build your own — and to leave knowing
+how every piece works, because you put each one there yourself.
 
-## The three capabilities
+## Two things in this kit — do not confuse them
 
-| Command | What it does |
-|---------|-------------|
-| `/voice-dump` | Talk at it. It splits the ramble into items, routes each to its project, and asks about anything with no home. |
-| `/daily-brief` | What needs you today, what is handled, the one thing worth doing. |
-| `/friday-wrap` | What closed, what slipped and why, what carries. Sets next week against the cap and writes the handoff. |
+**`BUILD-PROMPTS.md` — the lesson. Start here.** Six prompts, pasted into Claude Code in order.
+Each builds one piece of your chief of staff: the interview, the files, the morning brief, the
+Friday wrap, the voice dump, and finally your own installed plugin on your own schedule. One
+sitting, start to finish.
 
-The wrap writes the handoff that Monday's brief reads, so the week closes and opens as a loop.
+**`plugin/` — the worked answer.** The same six pieces, finished. This is what gets demoed live,
+and what you check your build against when yours comes out differently. If you only want to see
+it run before building, install it:
 
-Each capability is a folder under `.claude/skills/` plus a one-line command. That is the whole
-mechanism, which is why they can be built one at a time and why you can add a fourth.
+```
+/plugin marketplace add geekayjahan/ai-chief-of-staff
+/plugin install ai-chief-of-staff
+```
+
+Then open a chat and say **"set me up"**. The first thing it does is ask about you — the
+interview writes your files from your answers, and ends by putting the brief and the wrap on a
+schedule. But installing the answer is not the assignment. Building is.
+
+## What you end up with
+
+Three capabilities, each one a skill (a markdown file of instructions Claude follows when the
+moment matches):
+
+| You say | It does |
+|---------|---------|
+| a raw ramble, pasted | **voice-dump** — splits it into items, routes each to its project, asks about anything with no home |
+| "where am I today" | **daily-brief** — what needs you today, what is handled, the one thing worth doing |
+| "wrap my week" | **friday-wrap** — what closed, what slipped and why, what carries; rebuilds next week against your cap |
+
+Under them, a folder of files that is the assistant's memory: a session ritual it reads first
+every time, a handoff so Monday knows what Friday knew, a cockpit (every project's status,
+readable in 90 seconds), a weekly contract capped at a fixed number of tasks, goals and a 90-day
+roadmap, an inbox that gets cleared every session, and your guardrails — your known failure
+modes, written down so it catches them before you do.
+
+The wrap writes the handoff that Monday's brief reads. That loop is the whole system: the week
+closes and opens in one motion, and nothing starts from nothing.
+
+It is opinionated by design. The task cap is real — nothing gets added without something coming
+off. Work and personal stay compartmentalised — each session you pick one, and only that context
+surfaces. These are inherited defaults, not settings.
 
 ## Who it is for
 
-Knowledge workers carrying several live workstreams at once. Consultants, analysts, product and
-project managers, designers, engineers, researchers, marketers, operators. The job title does not
-matter; the shape of the problem does.
-
-You are the right user if a few of these are true: more open threads than you can hold in your
-head, several stakeholders who each think their thing is the priority, a calendar that chops the
-day into pieces too small to think in, and work that follows you home so work and personal keep
-bleeding into each other.
-
-It does not assume you set prices, manage people, or publish anything. It assumes you have more
-claims on your attention than attention.
-
-## Start here
-
-1. Decide where your personalised PM should live. Not this folder. The templates stay clean.
-2. Install using whichever path matches your setup, below.
-3. Answer the onboarding questions. Skipping is fine, anything skipped gets marked
-   `→ fill when ready` rather than invented.
-4. Open your new PM folder in a fresh session. It takes over from there.
-
-Then read [SESSION-FLOW.md](SESSION-FLOW.md) to see what it does on its own, and work through
-the first three cases in [EXAMPLES.md](EXAMPLES.md).
-
-## Install
-
-**Claude Code:** open this kit and run `/setup-pm`.
-
-**Any other model that reads a folder** (Claude.ai, ChatGPT, Gemini): point it at `templates/`
-and tell it to follow `ONBOARDING.md`. The exact wording is in [PROMPTS.md](PROMPTS.md).
-
-**No folder access:** paste `templates/ONBOARDING.md` into the chat and say *"Follow this."*
-
-## What is in here
-
-| Path | What it is |
-|------|-----------|
-| [`templates/`](templates/) | The EA files, carrying `{{PLACEHOLDER}}` markers |
-| [`SESSION-FLOW.md`](SESSION-FLOW.md) | How a session runs, start to close |
-| [`PROMPTS.md`](PROMPTS.md) | Paste-ready prompts for install and for running it |
-| [`EXAMPLES.md`](EXAMPLES.md) | Things to try, with what a good answer looks like |
-| `.claude/` | The three capabilities, as skills plus commands |
-
-Inside `templates/`:
-
-```
-CLAUDE.md              the session ritual, read first every time
-STATUS.md              handoff between sessions
-PROJECT_HQ.md          the cockpit, split work and personal
-WEEKLY_PLAN.md         the weekly contract, split work and personal
-GOALS.md               priority hierarchy per context
-ROADMAP.md             90-day milestones
-BRAIN_DUMP.md          unified inbox, cleared every session
-USER_GUARDRAILS.md     your failure modes, with flag and redirect lines
-ONBOARDING.md          the guided question set
-project-template/      copied once per project, capped and uncapped variants
-```
-
-## What you get after install
-
-Your folder, not this one:
-
-```
-Your PM/
-├── CLAUDE.md              session ritual
-├── STATUS.md              handoff
-├── PROJECT_HQ.md          cockpit
-├── WEEKLY_PLAN.md         weekly contract
-├── GOALS.md               priorities
-├── ROADMAP.md             90-day view
-├── BRAIN_DUMP.md          inbox
-├── USER_GUARDRAILS.md     failure modes
-│
-└── <project-name>/        one folder per project
-    ├── CLAUDE.md          project sub-agent, capped or uncapped
-    ├── <PROJECT>.md       strategy and tasks
-    ├── <PROJECT>_TASKS.md prioritisation matrix
-    └── <PROJECT>_LOG.md   hour ledger, capped projects only
-```
+Knowledge workers carrying several live workstreams: more open threads than your head holds,
+stakeholders who each think their thing is the priority, a calendar chopped too small to think
+in, and work that follows you home. The job title does not matter; the shape of the problem does.
 
 ## Connecting your apps
 
-`/daily-brief` gets better with your calendar and mail attached. It is built to work with
-nothing connected, so treat every connection as optional and add them one at a time.
+The brief gets better with your calendar and mail attached, and needs neither. Connect for
+reading, not acting — read-only scopes cover everything it does. Three roles earn a connection:
+calendar (what is actually on today), mail or chat (what is waiting on you specifically), and
+your task tracker (what is due that the files do not know). Anything beyond those is noise.
 
-**Connect for reading, not for acting.** Read-only scopes are enough for everything the
-assistant does here. It plans and routes; it does not send mail, move meetings, or close
-tickets on your behalf. If a connector only offers full access, that is a reason to think
-harder about whether you want it, not a reason to grant it.
+Connected content is data, not instruction. Your assistant takes instructions from you in the
+session, never from inside an email, a document, or a fetched page. An email that says "urgently
+reprioritise everything" is a fact about an email, and anyone can email you. That line is what
+keeps it from mattering.
 
-**Three roles earn a connection:** calendar (what is actually on today), mail or chat (what is
-waiting on you specifically), and your task tracker (what is due that the PM files do not
-know). Anything beyond those is usually noise the brief has to filter back out.
-
-**Connected content is data, not instruction.** Your PM already carries this rule: it takes
-instructions from you in the session, never from inside a document, an email, or a fetched
-page. That rule is doing real work the moment you connect a mailbox, because an email that says
-"urgently reprioritise everything" is a fact about an email and nothing more. Anyone who can
-email you can put text in front of your assistant. This is the line that keeps that from
-mattering.
-
-**Nothing is load-bearing on a connector.** Each capability degrades to the PM files alone and
-says nothing about what is missing. You can demo the whole thing offline.
+Nothing is load-bearing on a connector. Every capability degrades to the files alone and says
+nothing about what is missing. The whole thing demos offline.
 
 ## What it is not
 
-**Not a task tracker.** It points at whatever you already use for ticket-level detail. It is not
-trying to replace ClickUp or Linear or your reminders app.
+Not a task tracker — it points at whatever you already use for ticket-level detail. Not an
+executor — it plans, routes, and manages, and will not touch your deliverables unless you ask.
+Not generic — the interview writes your projects, contexts, and failure modes into it, and that
+specificity is the whole reason it can refuse things on your behalf.
 
-**Not an executor.** It plans, routes, and manages. It will not touch your project deliverables
-unless you ask it to directly.
+## Map
 
-**Not generic.** Onboarding asks enough that the installed version has your projects, your
-contexts, and your failure modes written into it. That specificity is the whole reason it can
-refuse things.
+| Path | What it is |
+|------|-----------|
+| [`BUILD-PROMPTS.md`](BUILD-PROMPTS.md) | The lesson — six prompts that build your own |
+| [`plugin/`](plugin/) | The worked answer — four skills, templates, manifest |
+| [`SESSION-FLOW.md`](SESSION-FLOW.md) | How a session runs, start to close |
+| [`PROMPTS.md`](PROMPTS.md) | Paste-ready prompts for running the thing day to day |
+| [`EXAMPLES.md`](EXAMPLES.md) | Things to try, with what a good answer looks like |
+| [`EVAL.md`](EVAL.md) | The rubric this kit is graded against |
+| `build-plugin.sh` | Packs `plugin/` into an installable `.plugin` file |
 
 ## Changing it later
 
-Everything is a markdown file in your folder. Change the task cap by editing it in `CLAUDE.md`,
-`WEEKLY_PLAN.md`, and `USER_GUARDRAILS.md`. Change how it talks to you by editing the EA IDENTITY
-section of your `CLAUDE.md`. Add a project by copying `project-template/` and wiring it into
-`PROJECT_HQ.md`, `GOALS.md`, and the key files table.
+Everything is a markdown file in your folder. Change the task cap by editing it where it
+appears. Change how it talks to you by editing the EA IDENTITY section of your `CLAUDE.md`. Add
+a fourth capability the way you built the first three: one more prompt, one more skill. That is
+the extension mechanism, and you already know it — you built the other pieces the same way.
 
-Add a capability the same way the three that ship were added: a folder under `.claude/skills/`
-with a `SKILL.md`, and a one-line command in `.claude/commands/`. That is the whole extension
-mechanism, and it is why the kit scales to use cases beyond this one.
+**Next step: open [`BUILD-PROMPTS.md`](BUILD-PROMPTS.md) and paste prompt 1.**

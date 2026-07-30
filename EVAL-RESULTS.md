@@ -156,3 +156,75 @@ Claude. Two specific effects:
 Five criteria are marked *inferred* — M1, M2, N3, P3, and A2's trigger behaviour — because no live
 session could be run in this environment. They need a human to open the entry file cold and watch
 what it says first. That settles two gates outright.
+
+---
+
+# Eval results — second run
+
+**Date:** 2026-07-30 (after rebuild)
+**Branch:** `claude/ea-plugin-rubric-eng0dq` — restructured as plugin + build-prompts pack
+**Scope:** Claude path. F3–F6 still parked. One scope note below on F1/F2.
+**Auditor:** Claude, same caveats as run one.
+
+```
+GATES: 6/6 · TALLY: 29/30 · VERDICT: ship (pending live check of inferred criteria)
+```
+
+## What changed since run one
+
+- `plugin/` is now a real plugin: manifest, marketplace.json for one-command install,
+  `build-plugin.sh` verified packing all four skills. Templates live inside the setup skill, so
+  everything resolves from any folder once installed. Root cause 1 closed.
+- `BUILD-PROMPTS.md`: six prompts that build a student's own chief of staff from scratch, each
+  with the why before the prompt. The lesson is the build; the plugin is the worked answer, and
+  both README and kit CLAUDE.md state that hierarchy. Root cause 2 closed.
+- One front door (README → BUILD-PROMPTS), interview opens setup with the folder question
+  deferred to write time, and onboarding ends by putting the brief and wrap on a schedule.
+  Root cause 3 closed.
+- One name everywhere. Commands are thin pointers. ONBOARDING.md deleted (phases live only in
+  the skill). Ritual is 7 steps in both files. Read budget 1,998 words.
+
+## Gates
+
+| ID | Verdict | Evidence |
+|---|---|---|
+| M1 | **PASS** *(inferred)* | setup-pm: "Open with the interview. Nothing comes before it." Build path: prompt 1 opens with a question about the user. Needs one live confirmation. |
+| M2 | **PASS** *(inferred)* | Folder question moved to Phase 6. Between install (or paste) and the first question: zero actions. |
+| F1 | **PASS** | The stranding bug is gone: installed plugin resolves from any folder; templates travel inside it. |
+| F2 | **PASS** *(rescoped)* | Plugin install is now the platform assumption, per the audience decision (all on Claude Code). BUILD-PROMPTS is the rebuild path if that assumption breaks. |
+| E1 | **PASS** | Unchanged: wrap writes what the brief reads. Now invocable everywhere, so the loop actually runs. |
+| T1 | **PASS** | BUILD-PROMPTS.md: six prompts producing interview, files, brief, wrap, dump, package+schedule. |
+
+## Corrections to run one
+
+- **A4** claimed the injection rule was absent from `voice-dump`. Wrong — it was present at
+  voice-dump:74 in different words than the grep pattern. `friday-wrap` reads no external
+  content, so no rule is owed there. A4 was a PASS in run one as well.
+
+## Scored (changes only; unchanged passes not relisted)
+
+| ID | Was | Now | Evidence |
+|---|---|---|---|
+| M3 | FAIL | PASS | One entry point: BUILD-PROMPTS.md, stated in README, kit CLAUDE.md, and the README's closing line. |
+| A1 | FAIL | PASS | Commands are 1-line pointers; ONBOARDING.md deleted; phases exist once. |
+| A4 | FAIL | PASS | Correction above. |
+| L1 | FAIL | PASS | README → BUILD-PROMPTS: two files to first output. |
+| L2 | FAIL | PASS | 1,998 words. |
+| L3 | FAIL | PASS | Install stated once (README); phases once (skill); ritual identical (7=7). |
+| L4 | FAIL | PASS | Commands reachable via README → plugin/ map row; no doc orphans. |
+| N1 | FAIL | PASS | skill, cockpit, handoff, guardrails defined inline at first use in README. |
+| N2 | FAIL | PASS | EXAMPLES now closes with a next action. |
+| N4 | FAIL | PASS | "skill" explained at first mention; install is one pasted command. |
+| E2 | FAIL | PASS | AI Chief of Staff everywhere; only this file's run-one record retains old names. |
+| E3 | FAIL | PASS | One install path. |
+| E6 | FAIL | PASS | 7 steps both files, same order. |
+| P1 | FAIL | PASS | The loop claim is now demonstrable end to end. |
+| T2 | FAIL | PASS | Every BUILD-PROMPTS section opens with why the piece exists. |
+| T4 | FAIL | PASS | plugin.json + marketplace.json + verified build script. |
+| M4 | — | **FAIL → open** | Run one passed this; the rebuild moved scheduling into the sitting but the personalised files still land in a separate folder the user must open fresh. Mitigated (Phase 8 closes with "the first brief arrives tomorrow morning") but the fresh-session step survives. The one remaining tally fail. |
+
+## What a human still has to do
+
+1. Install the plugin cold and say "set me up" — confirm the first output is a question (M1/M2).
+2. Run BUILD-PROMPTS prompt 1 in a fresh project — same check on the build path.
+3. Run `friday-wrap` then `daily-brief` next morning — watch the handoff actually carry (E1 live).

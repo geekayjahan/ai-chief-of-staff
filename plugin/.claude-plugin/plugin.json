@@ -1,0 +1,9 @@
+{
+  "name": "ai-chief-of-staff",
+  "version": "1.0.0",
+  "description": "An AI chief of staff you install once and then talk to. Onboards you through an interview, holds the plan, tells you the one thing worth doing, runs a morning brief and a Friday wrap, and stops you working on the wrong thing.",
+  "author": {
+    "name": "GK"
+  },
+  "keywords": ["productivity", "chief-of-staff", "ea", "planning", "project-management"]
+}

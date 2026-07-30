@@ -1,33 +1,27 @@
 ---
 name: setup-pm
-description: Onboards a user into the Everyday Project Manager by asking guided questions and writing their personalised PM files into a folder of their choosing. Handles both work and personal projects with compartmentalised sessions. Use when the user installs the plugin for the first time, says "set up my project manager", "configure the PM", "install the PM", "personalise this PM", "start onboarding", or wants to scaffold their everyday project manager.
+description: Onboards a user into their AI Chief of Staff by interviewing them and writing personalised files into a folder of their choosing. Handles both work and personal projects with compartmentalised sessions. Use when the user has just installed the plugin, says "set me up", "set up my chief of staff", "get me started", "start onboarding", or asks what to do first after installing.
 ---
 
-# Setup PM — Onboarding Skill
+# Setup — Onboarding Skill
 
 ## What this skill does
 
-Walks the user through structured onboarding, then writes a folder of personalised Project Manager files to a location they choose. Templates live in `templates/` at the root of this kit. Read each template, substitute placeholders with the user's answers, write the result out.
+Interviews the user, then writes a folder of personalised AI Chief of Staff files to a location they choose. Templates live in `references/templates/` next to this skill. Read each template, substitute placeholders with the user's answers, write the result out.
 
-The Project Manager itself runs from those files (via the root `CLAUDE.md`) once setup is complete. This skill only handles setup.
+The chief of staff itself runs from those files (via the folder's `CLAUDE.md`) once setup is complete. This skill only handles setup.
 
-The PM supports both work and personal projects, with compartmentalised sessions: at session start the user picks work or personal mode, and only that context surfaces.
+It supports both work and personal projects, with compartmentalised sessions: at session start the user picks work or personal mode, and only that context surfaces.
 
 ## Run order
 
+**Open with the interview. Nothing comes before it.** No file tour, no explanation of the system, no install questions. The first thing the user experiences is a question about them. Everything logistical (where files go) waits until Phase 6, when there is something to write.
+
 Follow phases in order. Don't skip ahead. Ask only what is unclear from prior turns. **Save progress as you go** by writing partial files when a section is complete — the user can pause and resume.
-
-### Phase 0 — Pick the install folder
-
-Ask where the personalised PM should be written.
-
-- Never write into this kit. `templates/` stays clean so the user can install again later.
-- Suggest a sensible default (a `Project Manager/` folder somewhere stable) and confirm before writing.
-- If a `CLAUDE.md` already exists at the target, stop and confirm before proceeding.
 
 ### Phase 1 — You
 
-Ask:
+Ask, as the very first thing said:
 
 1. **What should I call you?**
 2. **Describe yourself in one or two sentences.** Role, mode of working, key trait.
@@ -93,7 +87,13 @@ Capture: `USER_FAILURE_MODES`, `USER_DECISION_FATIGUE`, `USER_COLLABORATION_DYNA
 
 ### Phase 6 — Write the files
 
-Read each template from `templates/`. Substitute placeholders. Write to the install folder.
+**Now ask where the files should live.** This is the first logistical question of the run, and it comes only now, when there are answers worth writing.
+
+- Suggest a sensible default (a `Chief of Staff/` folder somewhere stable) and confirm before writing.
+- Never write into the plugin or this kit's folder.
+- If a `CLAUDE.md` already exists at the target, stop and confirm before proceeding.
+
+Read each template from `references/templates/` (next to this skill). Substitute placeholders. Write to the install folder.
 
 **Root files (always):**
 
@@ -208,16 +208,42 @@ If both `CAPPED_PROJECT_HARD_RULE` and `ADDITIONAL_HARD_RULES` are present, rend
 - If capped: `**This week's hours:** 0/{{PROJECT_HOURS_CAP}} used.`
 - Else: empty string.
 
-### Phase 7 — Confirm and close
+### Phase 7 — Confirm
 
-After writing all files, summarise:
+After writing all files, summarise briefly:
 
 - Folder location
 - Number of files written (split: core, per-project)
 - What's filled, what's still skeleton
-- Tell the user: open the folder in a fresh session. The root `CLAUDE.md` will ask the session-mode question (work / personal / both) and run the rest of the ritual.
 
-End with a single concrete next step. No bullet-point summary of everything that happened.
+No bullet-point summary of everything that happened. Then move straight to Phase 8 — setup is not done until the loop is offered.
+
+### Phase 8 — Put it on a schedule
+
+The chief of staff earns its keep by showing up unasked: a brief every morning, a wrap every Friday. Offer to set that up now, before closing:
+
+> *Want your brief to arrive every morning and your wrap every Friday, without asking? Two scheduled tasks and it runs itself.*
+
+If yes, walk them through creating two scheduled tasks in Claude (Desktop: the scheduled-tasks feature; Claude Code: a recurring task or cron trigger, whichever this environment offers). Give them the exact prompt text for each:
+
+**Morning brief** — every weekday morning, in the chief of staff folder:
+
+```
+Run my daily brief. Read the files here first; enrich from calendar and mail only if
+connected, and skip silently if not. What needs me today, what is handled, the one thing.
+```
+
+**Friday wrap** — every Friday afternoon, same folder:
+
+```
+Wrap my week. Done, slipped and why, carries. Check hours against any capped project.
+Rebuild next week against the task cap and make me choose what does not fit. Write the
+handoff into STATUS.md.
+```
+
+If the environment can create these tasks directly, create them with the user's confirmation rather than describing how. If the user declines, note in `STATUS.md` that the schedule is not set, so the brief can offer it again later.
+
+Close with one line: the folder is live, the schedule is (or is not) running, and the first brief arrives tomorrow morning. Nothing else.
 
 ## Complete placeholder reference
 
