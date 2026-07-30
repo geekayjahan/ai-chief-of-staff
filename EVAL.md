@@ -1,6 +1,6 @@
 # Eval
 
-A binary rubric for this kit. Thirty-five criteria, each answerable yes or no, five of which are
+A binary rubric for this kit. Forty criteria, each answerable yes or no, six of which are
 gates that block on their own.
 
 Run it after any change worth arguing about. Write the results to `EVAL-RESULTS.md` with a date,
@@ -8,18 +8,21 @@ so drift is visible over time.
 
 ## What this is testing
 
-The audience for this kit is spread across tools. Claude Desktop, Claude Code, Codex, ChatGPT.
-Most of them are not developers. They get handed a folder, they open the first file, and it
-interviews them. Everything else follows from that.
+The lesson runs like this. An intro on what this can do, a live demo of the plugin working in
+Claude Desktop, then the audience is handed a kit. They all have Claude Code and Claude Desktop
+installed beforehand. They open the kit, an interview discovers who they are, and the files get
+built from their answers.
 
-Which means anything that only works in one vendor's tool cannot be load-bearing. Slash commands,
-skill frontmatter and plugin packaging are Claude Code only. Scheduled tasks are Desktop only.
-Someone in Codex can reproduce none of it.
+But receiving a working assistant is only half of it. They should also be able to build it
+themselves. The core logic and the blueprint are the author's. The assistant is not. A learner who
+walks away holding files they could not reproduce has been given a tool and taught nothing.
 
-So the thing under test is a portable markdown core that any competent model can run, with vendor
-features layered on top as accelerants that add speed and never carry meaning. The question is not
-whether this is a good Claude Code plugin. It is whether this survives being opened in a tool that
-has never heard of Claude Code.
+So the thing under test is both halves. Does the kit land the moment and produce a working
+assistant, and does it hand over enough that the learner could build their own. A kit that ships
+perfect files and teaches nothing fails, however good the files are.
+
+Cross-model portability is parked. F3 to F6 stay in the rubric but are not scored while the
+audience is known to have Claude Code and Desktop.
 
 ## The rule for every criterion
 
@@ -99,6 +102,19 @@ Latest capabilities are worth using. For this audience, using them well means us
 | **E6** | Does the ritual match itself across files? | Compare `SESSION-FLOW.md` step by step against the session start ritual in `templates/CLAUDE.md`. A different count or order fails. |
 | **E7** | Do numeric defaults agree everywhere? | Task cap, brain dump cadence, cockpit read time, review date. One disagreement fails. |
 
+## T — Transfer
+
+The learner is meant to leave able to rebuild this, not just holding it. The blueprint is the
+author's. The assistant should not be. This group tests whether the kit teaches or only ships.
+
+| ID | Question | How it is settled |
+|---|---|---|
+| **T1** ⛔ | Does the kit hand over prompts that produce the files, rather than the files? | A learner following the kit must generate their own assistant. Receiving finished files with blanks to fill fails. |
+| **T2** | Can a learner say why each file exists, from the kit alone? | Every file in the shipped set carries its rationale, not only its function. A table of what each file is fails. |
+| **T3** | Is the blueprint separable from the instance? | The reusable logic and one person's filled-in copy must be distinguishable, and stay that way after install. |
+| **T4** | Does the build output an installed plugin? | A plugin resolves from any folder. A folder to copy does not, and breaks the moment the user works somewhere else. |
+| **T5** | Can the blueprint be changed and rebuilt without starting over? | A doc names what to edit and what to re-run. |
+
 ## P — Practical
 
 | ID | Question | How it is settled |
@@ -112,7 +128,7 @@ Latest capabilities are worth using. For this audience, using them well means us
 
 ## Scoring
 
-Five gates: **M1, M2, F1, F2, E1**.
+Six gates: **M1, M2, F1, F2, E1, T1**.
 
 The first two are the moment, which is the opening promise. The next two are portability, which is
 what makes the kit usable by an audience that is not all in one tool. The last is the loop, which
@@ -120,8 +136,8 @@ is what makes this a system rather than two prompts. Everything else is a defect
 reason to stop.
 
 - Any gate failing means not ready to teach, whatever the tally says.
-- The rest report as a tally out of 30.
-- Verdict line: `GATES: n/5 · TALLY: n/30 · VERDICT: ship | fix-first | rebuild`.
+- The rest report as a tally out of 34.
+- Verdict line: `GATES: n/6 · TALLY: n/34 · VERDICT: ship | fix-first | rebuild`.
 
 Every fail carries one line of evidence, either a file and line or the count that settled it. A
 fail without evidence gets dropped. It is an opinion.
@@ -138,5 +154,5 @@ fail without evidence gets dropped. It is an opinion.
 
 The deletion tests are the most valuable in the rubric and the easiest to skip. Do not skip them.
 
-One sanity check on the rubric itself: it should never return 35 out of 35 on first contact. A
+One sanity check on the rubric itself: it should never return 40 out of 40 on first contact. A
 rubric that passes everything is measuring nothing.

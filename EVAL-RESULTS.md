@@ -2,18 +2,19 @@
 
 **Date:** 2026-07-30
 **Branch:** `claude/ea-plugin-rubric-eng0dq` (`7ee84a2`, 28 files)
-**Scope:** Claude path only. F3–F6 parked — cross-model portability deferred by request.
+**Scope:** Claude path only. F3–F6 parked — audience confirmed on Claude Code + Desktop.
+**Revision:** Transfer group (T1–T5) added after the lesson design was clarified, and scored.
 **Auditor:** Claude. Same model that authored the kit. See *Bias* at the end.
 
 ```
-GATES: 1/5 · TALLY: 12/26 scored · VERDICT: fix-first
+GATES: 1/6 · TALLY: 14/30 scored · VERDICT: fix-first
 ```
 
-Four of the five gates fail, and they trace to two root causes. Not thirty separate problems.
+Five of the six gates fail. They trace to three root causes, not sixteen separate problems.
 
 ---
 
-## The two root causes
+## The three root causes
 
 ### 1. The commands don't travel with the files
 
@@ -36,7 +37,23 @@ sound.
 user level in `~/.claude/skills/` and resolve from anywhere. A learner handed a zip gets the
 project-scoped copy and hits it immediately.
 
-### 2. There is no front door
+### 2. The kit ships the answer, not the method
+
+The lesson's point is that the learner leaves able to rebuild this. The kit hands them finished
+templates with blanks to fill.
+
+`PROMPTS.md` has eight sections and every one is about *running* the assistant: install, start a
+session, set the week, monthly review, add a project, re-orient, fix it. None of them build it.
+`templates/` is the completed artefact with `{{PLACEHOLDER}}` markers, so the learner receives an
+assistant and never sees what produced it.
+
+They also cannot explain it afterwards. README:6 gives the reasoning for three things — the cap,
+the cockpit, the cleared brain dump. The other five root files appear in a table that says what
+each one is and never why it exists.
+
+Takes down **T1**, drives **T2**.
+
+### 3. There is no front door
 
 The interview exists and is good. Nothing routes a new user into it.
 
@@ -57,6 +74,7 @@ Takes down **M1, M2, M3**, and drives **L1, L3**.
 | **M2** | Zero pre-work before that question | **FAIL** | Three required actions first: decide folder (README:39), choose install path (README:50–55), run command or paste file. Any count above zero fails. |
 | **F1** | Runs with the vendor layer absent | **FAIL** | Not hypothetical — the install path itself produces a PM folder without `.claude/`. Grep of `setup-pm/SKILL.md`, `ONBOARDING.md`, `commands/setup-pm.md` finds no copy step. |
 | **F2** | No vendor mechanism is load-bearing | **FAIL** | `templates/CLAUDE.md` CAPABILITIES table names three capabilities that only resolve from the kit's `.claude/`. Same file also assumes something auto-reads it at session start. |
+| **T1** | Hands over prompts that build, not files to fill | **FAIL** | All eight `PROMPTS.md` sections are runtime operations. `templates/` ships the finished artefact with blanks. No prompt in the kit produces the kit. |
 | **E1** | The loop closes | **PASS** | `friday-wrap:51,55` writes `STATUS.md` and `PROJECT_HQ.md`; `daily-brief:19,21` reads both, `STATUS.md` first. Structurally sound. Blocked at runtime by F1, not by its own design. |
 
 ---
@@ -91,8 +109,12 @@ Takes down **M1, M2, M3**, and drives **L1, L3**.
 | P2 | Named recovery per failure | PASS | PROMPTS:129 plus SESSION-FLOW:97 cover the five named modes. |
 | P3 | Low-effort onboarding usable | PASS *(inferred)* | Same rule as N3. |
 | P4 | Worked example with expected output | PASS | `EXAMPLES.md`, 11 sections showing what good looks like. |
+| T2 | Learner can say why each file exists | FAIL | README:6 gives rationale for 3 of 8 root files. The rest get function-only rows in a table. |
+| T3 | Blueprint separable from instance | PASS | README:39 "the templates stay clean"; `setup-pm` Phase 0 forbids writing into the kit. Enforced, not just stated. |
+| T4 | Build outputs an installed plugin | FAIL | No `.claude-plugin/plugin.json` on this branch. It exists on `claude/plugin-status-demo-u3hsim`, which this lineage dropped. |
+| T5 | Blueprint changeable and rebuildable | PASS | README:140–149 names what to edit for the cap, the tone, a new project, a fourth capability. |
 
-**Parked:** F3, F4, F5, F6 — cross-model portability, deferred.
+**Parked:** F3, F4, F5, F6 — cross-model portability. Audience is on Claude Code and Desktop.
 
 ---
 
@@ -100,17 +122,21 @@ Takes down **M1, M2, M3**, and drives **L1, L3**.
 
 Gates first. Two fixes clear four of them.
 
-1. **Ship the capabilities with the PM.** Either `setup-pm` copies `.claude/` into the install
-   folder, or the routines are written there as plain markdown. Clears F1, F2, P1.
-2. **Give it a front door.** One file, named the same everywhere, that opens by asking the user a
+1. **Make the build produce an installed plugin.** A plugin's skills resolve from any folder, which
+   is why this works on the author's machine and breaks for anyone handed a loose folder. The
+   manifest and `build-plugin.sh` already exist on `claude/plugin-status-demo-u3hsim`. Clears F1,
+   F2, T4, P1.
+2. **Write the prompts that build the kit.** The learner runs them and their assistant comes out the
+   other end. Add the reason each file exists while doing it. Clears T1, T2.
+3. **Give it a front door.** One file, named the same everywhere, that opens by asking the user a
    question. Move the folder decision after the interview or drop it. Clears M1, M2, M3.
-3. Collapse the duplicated install instructions and the duplicated onboarding phases. L3, L1, A1.
-4. Pick one product name. E2.
-5. Add the injection rule to `voice-dump`. A4.
-6. Reconcile the 6-step and 8-step rituals. E6.
-7. Define cockpit, handoff, sub-agent, session mode at first use. N1, N4.
+4. Collapse the duplicated install instructions and the duplicated onboarding phases. L3, L1, A1.
+5. Pick one product name. E2.
+6. Add the injection rule to `voice-dump`. A4.
+7. Reconcile the 6-step and 8-step rituals. E6.
+8. Define cockpit, handoff, sub-agent, session mode at first use. N1, N4.
 
-Items 4–7 are cheap and independent. Items 1–2 are structural and should land first.
+Items 5–8 are cheap and independent. Items 1–3 are structural and should land first.
 
 ---
 
@@ -123,6 +149,9 @@ Claude. Two specific effects:
   silent on dimensions nothing prompted. Blind spots in the kit are blind spots in the rubric.
 - Six findings were predicted before the audit ran. Five were confirmed here. That is weaker
   evidence than it looks.
+- The first version of this rubric had 35 criteria and not one of them asked whether the learner
+  could rebuild the kit — the stated point of the lesson. The Transfer group was added only after
+  the author described the lesson design. A rubric written from the artefact grades the artefact.
 
 Five criteria are marked *inferred* — M1, M2, N3, P3, and A2's trigger behaviour — because no live
 session could be run in this environment. They need a human to open the entry file cold and watch
