@@ -92,6 +92,7 @@ Priority hierarchy ({{CURRENT_MONTH_YEAR}} — check GOALS.md for current):
 | [USER_GUARDRAILS.md](USER_GUARDRAILS.md) | Failure modes + hard rules |
 | [MORNING_BRIEF.md](MORNING_BRIEF.md) | Written by the morning brief, replaced daily |
 | [FRIDAY_WRAP.md](FRIDAY_WRAP.md) | Written by the Friday wrap, replaced weekly |
+| [SPEC.md](SPEC.md) | What was agreed at setup. A record, not config — this file wins over it |
 {{PROJECT_FILE_TABLE_ROWS}}
 
 ---

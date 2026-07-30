@@ -15,7 +15,11 @@ The PM supports both work and personal projects, with compartmentalised sessions
 
 ## Run order
 
-Follow phases in order. Don't skip ahead. Ask only what is unclear from prior turns. **Save progress as you go** by writing partial files when a section is complete — the user can pause and resume.
+Follow phases in order. Don't skip ahead. Ask only what is unclear from prior turns.
+
+**Write nothing into the install folder until the spec is confirmed at Phase 6.** The one exception is `SPEC.md` itself: append each phase's answers to it as they come in. That is how the user pauses and resumes — the spec is the save file. Everything else gets written in one go at Phase 7, after the user has said yes.
+
+This matters because the alternative is writing fifteen files off unconfirmed answers, and the natural fix at that point is re-running onboarding over a folder the user has already started using.
 
 ### Phase 0 — Pick the install folder
 
@@ -91,7 +95,21 @@ Ask:
 
 Capture: `USER_FAILURE_MODES`, `USER_DECISION_FATIGUE`, `USER_COLLABORATION_DYNAMICS`, `USER_ENERGY_RHYTHMS`.
 
-### Phase 6 — Write the files
+### Phase 6 — The spec
+
+Everything has been answered. Before writing anything, show the user what they are about to get, on one page, and get a yes.
+
+Render `templates/SPEC.md` in full and put it in front of them. It covers who it is for, the projects with their context tags and caps, the rules it will enforce, the guardrails it will watch for, the three routines and what each writes, what it will refuse to do, and what was skipped and will land as `→ fill when ready`.
+
+Then ask one question: **does this match, or what needs changing?**
+
+- **If they confirm**, move to Phase 7 and write everything.
+- **If they correct something**, apply it, go back to whichever phase owns that answer if it needs re-asking, and re-show **only the part that changed**. Do not re-render the whole spec. They have read it once.
+- **If they skim and say "looks fine"**, take it. This is a gate, not an exam. Do not walk them through it line by line.
+
+The "still blank" section is the one worth pointing at directly. It is the user's last cheap chance to fill something in before it becomes a skeleton they have to go back and edit.
+
+### Phase 7 — Write the files
 
 Read each template from `templates/`. Substitute placeholders. Write to the install folder.
 
@@ -109,6 +127,7 @@ Read each template from `templates/`. Substitute placeholders. Write to the inst
 | `USER_GUARDRAILS.md` | `templates/USER_GUARDRAILS.md` |
 | `MORNING_BRIEF.md` | `templates/MORNING_BRIEF.md` |
 | `FRIDAY_WRAP.md` | `templates/FRIDAY_WRAP.md` |
+| `SPEC.md` | `templates/SPEC.md` (already written and confirmed at Phase 6 — finalise it, don't ask again) |
 
 **Per project**, create a subfolder named `kebab-case(project.name)` containing:
 
@@ -192,6 +211,14 @@ If both `CAPPED_PROJECT_HARD_RULE` and `ADDITIONAL_HARD_RULES` are present, rend
   - [ ] **{{project.name}}:** {{horizon_sentence}}
   ```
 
+**`SPEC_PROJECT_LIST`** (in SPEC.md):
+- One bullet per project, work first then personal: `- **{{project.name}}** — {{project.context}}, priority {{project.priority}}{{, capped at N hrs/week if capped}}. {{project.status}}`
+
+**`SPEC_SKIPPED`** (in SPEC.md):
+- A bullet per thing the user skipped or left thin, naming the file it will show up in: `- Collaboration dynamics — will read \`→ fill when ready\` in USER_GUARDRAILS.md`
+- If they answered everything: `Nothing. Every section was answered.`
+- Be honest here. This section exists so the user finds out now rather than in week three.
+
 **`GOAL_HIERARCHY_LIST`** (in root CLAUDE.md, terse version):
 - Numbered list, work first then personal, format: `{{N}}. {{project.name}} — {{role_label}}`
 
@@ -210,7 +237,7 @@ If both `CAPPED_PROJECT_HARD_RULE` and `ADDITIONAL_HARD_RULES` are present, rend
 - If capped: `**This week's hours:** 0/{{PROJECT_HOURS_CAP}} used.`
 - Else: empty string.
 
-### Phase 7 — Confirm and close
+### Phase 8 — Confirm and close
 
 After writing all files, summarise:
 
@@ -273,6 +300,8 @@ End with a single concrete next step. No bullet-point summary of everything that
 ### Conditional sections
 | Placeholder | Filled with |
 |-------------|-------------|
+| `{{SPEC_PROJECT_LIST}}` | One bullet per project for SPEC.md: context, priority, cap, status |
+| `{{SPEC_SKIPPED}}` | What was skipped, and which file it will be blank in |
 | `{{CAPPED_PROJECT_INSTRUCTION}}` | Session-ritual sentence (empty if no caps) |
 | `{{CAPPED_PROJECT_HARD_RULE}}` | Hard-rule line (empty if no caps) |
 | `{{ADDITIONAL_HARD_RULES}}` | Extra rule bullets (empty if none) |

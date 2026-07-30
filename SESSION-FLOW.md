@@ -5,6 +5,14 @@ its own `CLAUDE.md`. You do not have to drive it through these steps.
 
 ---
 
+Before any of this, onboarding shows you a spec — the projects, the cap, the rules, the
+guardrails, and what you skipped — and writes nothing else until you confirm it. That page ends
+up in your folder as `SPEC.md`. It is a record of what you agreed, not live config, so where it
+and `CLAUDE.md` disagree, `CLAUDE.md` is what actually runs and the gap is just showing you what
+changed since.
+
+---
+
 ## The session, start to close
 
 **1. You open your PM folder.**

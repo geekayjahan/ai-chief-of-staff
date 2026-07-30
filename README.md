@@ -42,7 +42,9 @@ claims on your attention than attention.
 2. Install using whichever path matches your setup, below.
 3. Answer the onboarding questions. Skipping is fine, anything skipped gets marked
    `→ fill when ready` rather than invented.
-4. Open your new PM folder in a fresh session. It takes over from there.
+4. Read the spec it shows you. Nothing else gets written until you say yes, so this is the cheap
+   moment to fix a wrong cap or a mistagged project.
+5. Open your new PM folder in a fresh session. It takes over from there.
 
 Then read [SESSION-FLOW.md](SESSION-FLOW.md) to see what it does on its own, and work through
 the first three cases in [EXAMPLES.md](EXAMPLES.md).
@@ -83,6 +85,7 @@ VOICE_DUMP.md          unified inbox, cleared every session
 USER_GUARDRAILS.md     your failure modes, with flag and redirect lines
 MORNING_BRIEF.md       written by the brief, replaced daily
 FRIDAY_WRAP.md         written by the wrap, replaced weekly
+SPEC.md                what you agreed at setup, shown to you before anything is written
 ONBOARDING.md          the guided question set
 project-template/      copied once per project, capped and uncapped variants
 ```
@@ -103,6 +106,7 @@ Your PM/
 ├── USER_GUARDRAILS.md     failure modes
 ├── MORNING_BRIEF.md       today, replaced daily
 ├── FRIDAY_WRAP.md         this week, replaced weekly
+├── SPEC.md                what you agreed at setup
 │
 └── <project-name>/        one folder per project
     ├── CLAUDE.md          project sub-agent, capped or uncapped

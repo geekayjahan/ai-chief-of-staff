@@ -4,7 +4,7 @@ Paste the prompt below into Claude, ChatGPT, Gemini, or any LLM that can read yo
 
 ## Prompt to give the model
 
-> You are helping me set up a personal Project Manager system in this folder. The templates have `{{PLACEHOLDER}}` markers. Walk me through the onboarding questions below in order. Ask one phase at a time. Don't move on until I've answered. When I've answered all phases, fill in every template file by substituting placeholders and writing my answers into the prose sections. Never make up content — if I skip a section, leave a `→ fill when ready` marker. Render two-section files (PROJECT_HQ, WEEKLY_PLAN, GOALS, ROADMAP) with both Work and Personal halves populated from the projects I tagged. Once done, summarise what was written and where, and tell me to open this folder in a fresh session.
+> You are helping me set up a personal Project Manager system in this folder. The templates have `{{PLACEHOLDER}}` markers. Walk me through the onboarding questions below in order. Ask one phase at a time. Don't move on until I've answered. When I've answered all phases, fill in `SPEC.md` and show it to me — do not write any other file until I have confirmed it. Once I say yes, fill in every remaining template file by substituting placeholders and writing my answers into the prose sections. Never make up content — if I skip a section, leave a `→ fill when ready` marker. Render two-section files (PROJECT_HQ, WEEKLY_PLAN, GOALS, ROADMAP) with both Work and Personal halves populated from the projects I tagged. Once done, summarise what was written and where, and tell me to open this folder in a fresh session.
 
 ## The onboarding phases
 
@@ -47,9 +47,22 @@ Push for specifics. Skip rather than fake.
 3. Collaboration dynamics — per partnered project.
 4. Energy and focus rhythms (optional).
 
+### Phase 6 — The spec
+Before writing anything else, fill in `SPEC.md` and show it to me in full. It reflects back the projects, the cap, the rules, the guardrails, the three routines, what the assistant will refuse to do, and what I skipped.
+
+Then ask one question: does this match, or what needs changing?
+
+- If I confirm, write everything else.
+- If I correct something, fix it, re-ask the phase it belongs to if needed, and show me only the part that changed.
+- If I skim and say it's fine, take it. This is a gate, not an exam.
+
+Point at the "still blank" section directly. It's my last cheap chance to fill something in.
+
 ## What to write
 
-**Root files** (always): `CLAUDE.md`, `STATUS.md`, `PROJECT_HQ.md`, `WEEKLY_PLAN.md`, `GOALS.md`, `ROADMAP.md`, `VOICE_DUMP.md`, `USER_GUARDRAILS.md`, `MORNING_BRIEF.md`, `FRIDAY_WRAP.md`.
+**Root files** (always): `CLAUDE.md`, `STATUS.md`, `PROJECT_HQ.md`, `WEEKLY_PLAN.md`, `GOALS.md`, `ROADMAP.md`, `VOICE_DUMP.md`, `USER_GUARDRAILS.md`, `MORNING_BRIEF.md`, `FRIDAY_WRAP.md`, `SPEC.md`.
+
+`SPEC.md` is written first and confirmed before the rest. Everything else is written in one go after that yes.
 
 **Per project**: Create a subfolder (kebab-case name) and copy from `project-template/`:
 - `CLAUDE.md` — use `CLAUDE-with-cap.md` if the project has a hard cap, else `CLAUDE-no-cap.md`
