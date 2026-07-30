@@ -21,12 +21,6 @@ hand it over.
 /setup-pm
 ```
 
-**Cowork:** install `everyday-pm.plugin`, then say:
-
-```
-Set up my project manager.
-```
-
 **Claude.ai, ChatGPT, Gemini, anything that reads a folder:** upload or point at the `templates/`
 folder, then:
 
@@ -56,45 +50,45 @@ You should get the mode question back, not a summary of your files.
 
 ---
 
-## Brain dump: capture
+## The three capabilities
 
-For when something is in your head and you do not want to think about where it goes.
+These are commands, not prompts to paste. On Claude Code they run as `/voice-dump`,
+`/daily-brief`, and `/friday-wrap`.
 
-```
-Brain dump, do not process yet:
-
-<everything, unsorted, half-finished thoughts included>
-```
-
-It should append to `BRAIN_DUMP.md` and leave it there. Nothing routed, nothing solved, no
-follow-up questions.
-
-## Brain dump: process
+Elsewhere, point the model at the skill and it behaves the same way:
 
 ```
-Process the brain dump. Route each item to the project it belongs to, tell me anything that
-does not have a home, and clear the file.
+Read .claude/skills/<name>/SKILL.md and follow it.
 ```
 
-Expect a short list of where things went, plus the orphans held up for a decision. The file
-should end up empty.
+**Voice dump.** Paste the transcript straight in, no tidying:
+
+```
+/voice-dump
+
+<the raw ramble, no punctuation, false starts and all>
+```
+
+Add "capture only, do not process yet" if you are still dumping and want it parked.
+
+Expect a short note of where things went plus questions about anything with no home. If it
+silently files something ambiguous, tell it to ask instead.
+
+**Daily brief.** `/daily-brief`. Expect what needs you today, what is handled, and the one
+thing. If it reads like a status report, say so; the brief is meant to be decision-shaped.
+
+**Friday wrap.** `/friday-wrap`. Expect done, slipped with the reason, carries, cap
+arithmetic, and next week rebuilt against the cap. If it rolls everything forward without
+naming a cut, the cap is not being enforced.
 
 ---
 
 ## Set the week
 
+Only needed mid-week. `/friday-wrap` already does this at the close.
+
 ```
 Set this week's plan. Hold the cap. For anything you are putting on, tell me what comes off.
-```
-
-The right response pushes back. If it puts eight things on a seven-task plan without naming what
-came off, the cap is not being enforced and you should say so.
-
-## Close the week
-
-```
-Close out the week. What actually got done, what slipped, and what carries. Update STATUS.md
-with the handoff.
 ```
 
 ---

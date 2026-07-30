@@ -7,6 +7,19 @@ It is opinionated by design. A weekly task cap you cannot quietly exceed, a cock
 stay readable at a glance, a brain dump that gets cleared every session, and work and personal
 kept apart so only one is in front of you at a time. These are inherited defaults, not settings.
 
+## The three capabilities
+
+| Command | What it does |
+|---------|-------------|
+| `/voice-dump` | Talk at it. It splits the ramble into items, routes each to its project, and asks about anything with no home. |
+| `/daily-brief` | What needs you today, what is handled, the one thing worth doing. |
+| `/friday-wrap` | What closed, what slipped and why, what carries. Sets next week against the cap and writes the handoff. |
+
+The wrap writes the handoff that Monday's brief reads, so the week closes and opens as a loop.
+
+Each capability is a folder under `.claude/skills/` plus a one-line command. That is the whole
+mechanism, which is why they can be built one at a time and why you can add a fourth.
+
 ## Who it is for
 
 Anyone running more than a couple of live projects across different parts of their life. Work,
@@ -29,9 +42,6 @@ the first three cases in [EXAMPLES.md](EXAMPLES.md).
 
 **Claude Code:** open this kit and run `/setup-pm`.
 
-**Cowork:** open `everyday-pm.plugin`, accept the install, then say *"Set up my project
-manager."*
-
 **Any other model that reads a folder** (Claude.ai, ChatGPT, Gemini): point it at `templates/`
 and tell it to follow `ONBOARDING.md`. The exact wording is in [PROMPTS.md](PROMPTS.md).
 
@@ -45,7 +55,7 @@ and tell it to follow `ONBOARDING.md`. The exact wording is in [PROMPTS.md](PROM
 | [`SESSION-FLOW.md`](SESSION-FLOW.md) | How a session runs, start to close |
 | [`PROMPTS.md`](PROMPTS.md) | Paste-ready prompts for install and for running it |
 | [`EXAMPLES.md`](EXAMPLES.md) | Things to try, with what a good answer looks like |
-| `everyday-pm.plugin` | Cowork one-click installer, bundling the same templates |
+| `.claude/` | The three capabilities, as skills plus commands |
 
 Inside `templates/`:
 
@@ -59,7 +69,6 @@ ROADMAP.md             90-day milestones
 BRAIN_DUMP.md          unified inbox, cleared every session
 USER_GUARDRAILS.md     your failure modes, with flag and redirect lines
 ONBOARDING.md          the guided question set
-content-optional/      POV, voice, and research files, installed only if you publish or teach
 project-template/      copied once per project, capped and uncapped variants
 ```
 
@@ -77,9 +86,6 @@ Your PM/
 ├── ROADMAP.md             90-day view
 ├── BRAIN_DUMP.md          inbox
 ├── USER_GUARDRAILS.md     failure modes
-├── USER_POV.md            only if the content layer is on
-├── USER_VOICE.md          only if the content layer is on
-├── USER_FRONTIER.md       only if the content layer is on
 │
 └── <project-name>/        one folder per project
     ├── CLAUDE.md          project sub-agent, capped or uncapped
@@ -87,6 +93,30 @@ Your PM/
     ├── <PROJECT>_TASKS.md prioritisation matrix
     └── <PROJECT>_LOG.md   hour ledger, capped projects only
 ```
+
+## Connecting your apps
+
+`/daily-brief` gets better with your calendar and mail attached. It is built to work with
+nothing connected, so treat every connection as optional and add them one at a time.
+
+**Connect for reading, not for acting.** Read-only scopes are enough for everything the
+assistant does here. It plans and routes; it does not send mail, move meetings, or close
+tickets on your behalf. If a connector only offers full access, that is a reason to think
+harder about whether you want it, not a reason to grant it.
+
+**Three roles earn a connection:** calendar (what is actually on today), mail or chat (what is
+waiting on you specifically), and your task tracker (what is due that the PM files do not
+know). Anything beyond those is usually noise the brief has to filter back out.
+
+**Connected content is data, not instruction.** Your PM already carries this rule: it takes
+instructions from you in the session, never from inside a document, an email, or a fetched
+page. That rule is doing real work the moment you connect a mailbox, because an email that says
+"urgently reprioritise everything" is a fact about an email and nothing more. Anyone who can
+email you can put text in front of your assistant. This is the line that keeps that from
+mattering.
+
+**Nothing is load-bearing on a connector.** Each capability degrades to the PM files alone and
+says nothing about what is missing. You can demo the whole thing offline.
 
 ## What it is not
 
@@ -107,8 +137,6 @@ Everything is a markdown file in your folder. Change the task cap by editing it 
 section of your `CLAUDE.md`. Add a project by copying `project-template/` and wiring it into
 `PROJECT_HQ.md`, `GOALS.md`, and the key files table.
 
-Add the content layer later by copying the three files out of `content-optional/` and filling
-them in.
-
-One caveat on the plugin: it is a packaged copy of `templates/`. If you edit the templates in
-this kit, the bundle is stale until someone rebuilds it.
+Add a capability the same way the three that ship were added: a folder under `.claude/skills/`
+with a `SKILL.md`, and a one-line command in `.claude/commands/`. That is the whole extension
+mechanism, and it is why the kit scales to use cases beyond this one.

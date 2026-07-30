@@ -25,7 +25,7 @@ It will not. Point them at their own PM folder, the one onboarding wrote. That f
 | `SESSION-FLOW.md` | How a session runs, start to close |
 | `PROMPTS.md` | Paste-ready prompts for install and for running the thing |
 | `EXAMPLES.md` | Example use cases, with what a good answer looks like |
-| `everyday-pm.plugin` | Cowork one-click installer, bundles the same templates |
+| `.claude/` | The three capabilities: `voice-dump`, `daily-brief`, `friday-wrap` |
 
-Note on the plugin: it is a packaged copy. If you change anything in `templates/`, the bundle is
-stale until it gets rebuilt.
+A capability is one folder under `.claude/skills/` with a `SKILL.md`, plus a one-line command in
+`.claude/commands/`. Follow that shape when adding a fourth.

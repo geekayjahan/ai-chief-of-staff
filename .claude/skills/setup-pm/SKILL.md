@@ -21,8 +21,8 @@ Follow phases in order. Don't skip ahead. Ask only what is unclear from prior tu
 
 Ask where the personalised PM should be written.
 
-- If the user has a Cowork folder selected, default to a subfolder named `Project Manager/` inside it. Confirm.
-- If no folder is selected, call `request_cowork_directory` to ask the user to pick one.
+- Never write into this kit. `templates/` stays clean so the user can install again later.
+- Suggest a sensible default (a `Project Manager/` folder somewhere stable) and confirm before writing.
 - If a `CLAUDE.md` already exists at the target, stop and confirm before proceeding.
 
 ### Phase 1 — You

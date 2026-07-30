@@ -58,10 +58,19 @@ A proper close is what makes the next session start in step 2 instead of from no
 
 ## The recurring rhythm
 
-**Every session:** the brain dump gets cleared. Nothing lives there permanently. It is an inbox,
-not a home.
+**Every day:** `/daily-brief` at the open. It runs the same reading order as steps 2 to 6 above
+and hands you what needs you today, what is handled, and the one thing. If your calendar or mail
+is connected it folds those in, and if not it runs on the PM files alone without mentioning it.
 
-**Every week:** the weekly plan is a contract, not a wish list. It holds a fixed number of tasks
+**Every session:** the brain dump gets cleared. Nothing lives there permanently. It is an inbox,
+not a home. `/voice-dump` is the fast way in: talk, paste the transcript, let it route.
+
+**Every week:** `/friday-wrap` at the close. It reports what closed, what slipped and why, and
+what carries, then rebuilds next week against the cap and writes the handoff into `STATUS.md`.
+Monday's brief opens from exactly that handoff, which is what makes the week a loop rather than
+a fresh start.
+
+The weekly plan is a contract, not a wish list. It holds a fixed number of tasks
 across work and personal combined, and the cap is real. Nothing goes on without something coming
 off. The test for anything asking to get on the list is one question: *if this does not happen
 this week, what breaks?* If the answer is nothing, it does not go on.

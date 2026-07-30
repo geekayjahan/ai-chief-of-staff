@@ -20,26 +20,29 @@ prioritising, which is the job you delegated.
 
 ---
 
-## 2. The unstructured dump
+## 2. The voice dump
+
+Talk into your phone on the walk back, paste the transcript in raw. This is what one actually
+looks like, and the point is that you do not clean it up:
 
 ```
-Brain dump: the Q3 deck needs a rewrite before Thursday, I still have not replied to Sam,
-the invoice thing is still open, I want to write something about how everyone is doing
-onboarding wrong, mum's birthday is somewhere in the next two weeks, and the pricing page
-has been half-finished for a month.
+/voice-dump
+
+ok so um the Q3 deck still needs the rewrite before thursday I keep pushing it, oh and I
+never replied to Sam about the contract thing, sorry the invoice, the invoice is still open
+too, what else, mum's birthday is coming up somewhere in the next couple of weeks I should
+sort something, and the pricing page has been half done for a month now which is annoying,
+and I keep wondering whether we're charging too little honestly, anyway the deck is the
+main thing
 ```
 
-Then, separately:
+**Good:** the deck and the pricing page route to their projects, the birthday goes to personal,
+the reply to Sam becomes a task, the repetition collapses into one item, and "I keep wondering
+whether we're charging too little" is kept as an open question rather than turned into a task
+you never asked for. Anything it cannot place comes back as one question.
 
-```
-Process it.
-```
-
-**Good:** each item routed to a project, the birthday landing in personal, the writing idea
-landing in the content layer if you installed it. Anything with no home comes back to you as a
-question rather than getting filed somewhere convenient.
-
-This is the one to demo live. It is the clearest illustration of the inbox and the routing.
+This is the one to demo live. It is the clearest illustration of the whole system: messy input,
+sorted output, nothing invented.
 
 ---
 
@@ -92,20 +95,39 @@ separated from things you are waiting on, because those need different conversat
 
 ---
 
-## 7. The content layer
-
-Only if you turned it on during onboarding.
+## 7. The morning brief
 
 ```
-I keep noticing that teams write specs nobody reads. Is there something here?
+/daily-brief
 ```
 
-**Good:** it checks the thought against your POV file before encouraging you. If it does not fit
-your central lens, it says so. The content layer exists to filter, not to cheerlead.
+**Good:** what needs you today, what is already handled, and the one thing. Short enough to read
+standing up. It opens from whatever Friday's wrap wrote, so it should already know where you
+stopped.
+
+**Not good:** a status report on every project, or a greeting and a preamble before the first
+real line. Also not good: stalling or complaining because you have no calendar connected. It is
+built to run on the PM files alone, which is how you should demo it.
 
 ---
 
-## 8. The return
+## 8. The Friday wrap, and the loop
+
+```
+/friday-wrap
+```
+
+**Good:** what closed, what slipped **and why it slipped**, what carries, hours against any
+capped project, and next week rebuilt against the cap with the cut named rather than everything
+quietly fitted in.
+
+Then the part worth demoing: run `/daily-brief` straight afterwards. It should open from the
+handoff the wrap just wrote. That round trip, wrap writes and brief reads, is the system working
+rather than two separate tricks.
+
+---
+
+## 9. The return
 
 ```
 I have been away two weeks. Where am I?
@@ -117,7 +139,7 @@ setup floods you.
 
 ---
 
-## 9. The guardrail catch
+## 10. The guardrail catch
 
 You will not prompt for this one. It should happen on its own.
 
