@@ -7,4 +7,4 @@ This repo is a ~30-minute lightning lesson: build a **Claude plugin** from a pla
 - **The local-app** version is `local-app/` (the same chief of staff as a plain folder any LLM can run). `everyday-pm.plugin` is the alternate variant kept as a comparison example.
 - **The install kit** is `templates/` — the alternate variant's templates, refined. Work/personal session modes, the three routines written into the installed `CLAUDE.md` rather than shipped as skills, and onboarding that shows the user a spec before it writes anything. This is what students install from; `SESSION-FLOW.md`, `PROMPTS.md`, and `EXAMPLES.md` are its docs.
 - **Capabilities are skills, not code** — each is a markdown `SKILL.md`. Keep them read-only-and-plan in spirit: the assistant plans and re-orients, it never executes project work, and app integration stays least-privilege (read-only, one app, narrow slice).
-- Keys/credentials live in `.env` only (gitignored; template in `.env.example`).
+- The lesson needs no API keys. If you extend the kit with something that does, keys live in `.env` only — it is gitignored, never commit it.
