@@ -22,10 +22,17 @@ mechanism, which is why they can be built one at a time and why you can add a fo
 
 ## Who it is for
 
-Anyone running more than a couple of live projects across different parts of their life. Work,
-side projects, household, family, learning, whatever else. It earns its keep when
-context-switching is costing you focus, or when you are holding too many open threads in your
-head to trust any of them.
+Knowledge workers carrying several live workstreams at once. Consultants, analysts, product and
+project managers, designers, engineers, researchers, marketers, operators. The job title does not
+matter; the shape of the problem does.
+
+You are the right user if a few of these are true: more open threads than you can hold in your
+head, several stakeholders who each think their thing is the priority, a calendar that chops the
+day into pieces too small to think in, and work that follows you home so work and personal keep
+bleeding into each other.
+
+It does not assume you set prices, manage people, or publish anything. It assumes you have more
+claims on your attention than attention.
 
 ## Start here
 

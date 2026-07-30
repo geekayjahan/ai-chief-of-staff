@@ -28,17 +28,17 @@ looks like, and the point is that you do not clean it up:
 ```
 /voice-dump
 
-ok so um the Q3 deck still needs the rewrite before thursday I keep pushing it, oh and I
-never replied to Sam about the contract thing, sorry the invoice, the invoice is still open
-too, what else, mum's birthday is coming up somewhere in the next couple of weeks I should
-sort something, and the pricing page has been half done for a month now which is annoying,
-and I keep wondering whether we're charging too little honestly, anyway the deck is the
-main thing
+ok so um the review deck still needs the rewrite before thursday I keep pushing it, oh and I
+never replied to Sam about the access thing, sorry the permissions, the permissions request
+is still open too, what else, mum's birthday is coming up somewhere in the next couple of
+weeks I should sort something, and the migration doc has been half done for a month now
+which is annoying, and honestly I keep wondering whether we've scoped this way too big,
+anyway the deck is the main thing
 ```
 
-**Good:** the deck and the pricing page route to their projects, the birthday goes to personal,
+**Good:** the deck and the migration doc route to their projects, the birthday goes to personal,
 the reply to Sam becomes a task, the repetition collapses into one item, and "I keep wondering
-whether we're charging too little" is kept as an open question rather than turned into a task
+whether we've scoped this way too big" is kept as an open question rather than turned into a task
 you never asked for. Anything it cannot place comes back as one question.
 
 This is the one to demo live. It is the clearest illustration of the whole system: messy input,
@@ -61,7 +61,7 @@ everything is how a plan becomes fiction.
 ## 4. The new commitment
 
 ```
-I have been asked to take on a workshop in three weeks. Should I?
+I have been asked to join another workstream starting in three weeks. Should I?
 ```
 
 **Good:** it runs your own filter back at you. What does this displace, where does it sit in the

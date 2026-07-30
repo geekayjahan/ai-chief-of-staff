@@ -58,9 +58,9 @@ Push for specifics. Skip rather than fake.
 - `<PROJECT>_LOG.md` — only if the project has a hard cap
 
 ### Filename derivation
-For project "Content Engine":
-- Subfolder: `content-engine`
-- Files: `CONTENT_ENGINE.md`, `CONTENT_ENGINE_TASKS.md`, `CONTENT_ENGINE_LOG.md`
+For project "Website Redesign":
+- Subfolder: `website-redesign`
+- Files: `WEBSITE_REDESIGN.md`, `WEBSITE_REDESIGN_TASKS.md`, `WEBSITE_REDESIGN_LOG.md`
 
 For project "Family":
 - Subfolder: `family`

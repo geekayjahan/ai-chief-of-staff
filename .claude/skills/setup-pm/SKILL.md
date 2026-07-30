@@ -42,7 +42,7 @@ Ask the user to list active projects. For each, collect:
 - Project name
 - Optional emoji
 - **Context: work / personal / both** (required — drives session-mode filtering)
-- Role / one-line significance (whatever role label makes sense in their world: revenue engine, authority-building, fitness, family, learning, side project, etc. — open-ended)
+- Role / one-line significance (whatever role label makes sense in their world: delivery, discovery, stakeholder work, operations, learning, health, family, etc. — open-ended)
 - Partner (solo or named)
 - Working directory (optional)
 - Priority rank (1 = top, separate ranks for work vs. personal)
@@ -57,7 +57,7 @@ Push for specifics. Don't accept "TBD" — if the user doesn't know, leave the f
 
 Capture: `PROJECTS[]` with fields `name, emoji, context, role, role_description, partner, working_dir, priority, hours_cap, cap_reason, status, next_milestone, what, stakeholders, agent_job`.
 
-`agent_job` is a short verb-phrase describing what the sub-agent's job is — derive it from role + cap. Example: "protect {{USER_NAME}}'s time from {{PROJECT_NAME}}'s pull and keep it running on {{PROJECT_HOURS_CAP}} hours" for a capped revenue project, or "hold the matrix and surface next moves" for an uncapped one.
+`agent_job` is a short verb-phrase describing what the sub-agent's job is — derive it from role + cap. Example: "protect {{USER_NAME}}'s time from {{PROJECT_NAME}}'s pull and keep it running on {{PROJECT_HOURS_CAP}} hours" for a capped project, or "hold the matrix and surface next moves" for an uncapped one.
 
 `PROJECT_COUNT` = `len(PROJECTS)`.
 
@@ -120,12 +120,12 @@ Read each template from `templates/`. Substitute placeholders. Write to the inst
 
 ### Filename derivation rule
 
-For project named "Content Engine":
+For project named "Website Redesign":
 
-- Subfolder: `content-engine` (lowercase, hyphens)
-- `PROJECT_FILENAME` = `CONTENT_ENGINE.md` (uppercase, underscores)
-- `PROJECT_TASKS_FILENAME` = `CONTENT_ENGINE_TASKS.md`
-- `PROJECT_LOG_FILENAME` = `CONTENT_ENGINE_LOG.md`
+- Subfolder: `website-redesign` (lowercase, hyphens)
+- `PROJECT_FILENAME` = `WEBSITE_REDESIGN.md` (uppercase, underscores)
+- `PROJECT_TASKS_FILENAME` = `WEBSITE_REDESIGN_TASKS.md`
+- `PROJECT_LOG_FILENAME` = `WEBSITE_REDESIGN_LOG.md`
 
 For project "Family":
 - Subfolder: `family`
@@ -297,9 +297,9 @@ End with a single concrete next step. No bullet-point summary of everything that
 | `{{PROJECT_AGENT_JOB}}` | Sub-agent's job (derived) |
 | `{{PROJECT_HOURS_CAP}}` | Hours/week cap (only for capped projects) |
 | `{{PROJECT_CAP_REASON}}` | Why the cap exists (capped only) |
-| `{{PROJECT_FILENAME}}` | e.g., `CONTENT_ENGINE.md` |
-| `{{PROJECT_TASKS_FILENAME}}` | e.g., `CONTENT_ENGINE_TASKS.md` |
-| `{{PROJECT_LOG_FILENAME}}` | e.g., `CONTENT_ENGINE_LOG.md` (capped only) |
+| `{{PROJECT_FILENAME}}` | e.g., `WEBSITE_REDESIGN.md` |
+| `{{PROJECT_TASKS_FILENAME}}` | e.g., `WEBSITE_REDESIGN_TASKS.md` |
+| `{{PROJECT_LOG_FILENAME}}` | e.g., `WEBSITE_REDESIGN_LOG.md` (capped only) |
 | `{{TASKS_HEADER_CAP_NOTE}}` | Cap note in PROJECT_TASKS header (empty if uncapped) |
 | `{{TASKS_HOURS_LINE}}` | Hours line in PROJECT_TASKS (empty if uncapped) |
 
@@ -309,8 +309,8 @@ End with a single concrete next step. No bullet-point summary of everything that
 - **Preserve the structure.** Don't omit sections or rename them — they're load-bearing.
 - **Use the user's exact words** where possible. Don't paraphrase their statuses or guardrails.
 - **Date headers** use `YYYY-MM-DD`.
-- **Project subfolder names** are kebab-case (`content-engine`, `family`, `motivated-code`).
-- **Project file names** are SCREAMING_SNAKE_CASE (`CONTENT_ENGINE.md`).
+- **Project subfolder names** are kebab-case (`website-redesign`, `family`, `vendor-migration`).
+- **Project file names** are SCREAMING_SNAKE_CASE (`WEBSITE_REDESIGN.md`).
 - **Strip non-alphanumeric characters** from project names before deriving filenames.
 - **For uncapped projects**: do not write a `PROJECT_LOG.md`, do not include cap-related text in `PROJECT_TASKS.md` (use the empty-string conditional placeholders).
 - **Empty placeholders inside markdown tables**: when a conditional ro
