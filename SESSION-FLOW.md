@@ -28,7 +28,7 @@ lot running. Work mode surfaces only work-tagged projects, the work half of the 
 work goals. Personal mode does the reverse. Both shows everything with a context flag per item.
 Projects tagged "both" appear either way.
 
-The brain dump stays unified regardless. Ideas land wherever they land, and get routed later.
+The inbox stays unified regardless. Ideas land wherever they land, and get routed later.
 
 **5. It orients you.**
 The assistant reads `PROJECT_HQ.md` and `WEEKLY_PLAN.md`, filtered to the mode you picked, then
@@ -38,8 +38,8 @@ worth doing today.
 Three sentences is a cap, not a target. If it starts producing a status report, that is drift,
 and you should say so.
 
-**6. It flags an unprocessed brain dump.**
-If `BRAIN_DUMP.md` has content sitting in it, the assistant says so and offers to process it
+**6. It flags an unprocessed dump.**
+If `VOICE_DUMP.md` has content sitting in it, the assistant says so and offers to process it
 before anything else. Processing means routing each item to the project it belongs to, then
 clearing the file.
 
@@ -47,7 +47,7 @@ clearing the file.
 The assistant plans, routes, questions, and decides. It does not build. It will not edit your
 project deliverables unless you ask it to, and it will not wander outside the PM folder.
 
-If you brain-dump mid-session, it processes what you said. It will not ask you to repeat yourself
+If you dump on it mid-session, it processes what you said. It will not ask you to repeat yourself
 in a tidier format.
 
 **8. It closes.**
@@ -58,17 +58,23 @@ A proper close is what makes the next session start in step 2 instead of from no
 
 ## The recurring rhythm
 
-**Every day:** `/daily-brief` at the open. It runs the same reading order as steps 2 to 6 above
-and hands you what needs you today, what is handled, and the one thing. If your calendar or mail
-is connected it folds those in, and if not it runs on the PM files alone without mentioning it.
+**Every day:** ask for your morning brief at the open. It runs the same reading order as steps 2
+to 6 above and hands you what needs you today, what is handled, and the one thing, then writes it
+to `MORNING_BRIEF.md`. If your calendar or mail is connected it folds those in, and if not it
+runs on the PM files alone without mentioning it.
 
-**Every session:** the brain dump gets cleared. Nothing lives there permanently. It is an inbox,
-not a home. `/voice-dump` is the fast way in: talk, paste the transcript, let it route.
+**Every session:** the inbox gets cleared. Nothing lives there permanently. The voice dump is the
+fast way in: talk, paste the transcript, let it route.
 
-**Every week:** `/friday-wrap` at the close. It reports what closed, what slipped and why, and
-what carries, then rebuilds next week against the cap and writes the handoff into `STATUS.md`.
-Monday's brief opens from exactly that handoff, which is what makes the week a loop rather than
-a fresh start.
+**Every week:** the Friday wrap at the close. It reports what closed, what slipped and why, and
+what carries, then rebuilds next week against the cap, writes `FRIDAY_WRAP.md`, and puts the
+handoff into `STATUS.md`. Monday's brief opens from exactly that handoff, which is what makes the
+week a loop rather than a fresh start.
+
+**On a schedule, if you want it.** The brief and the wrap both run unattended. A scheduled run
+cannot ask you the mode question, so it covers work and personal and tags each item, and where a
+choice is needed it takes the documented default and names it rather than stopping. On a desktop
+app the task only fires while the machine is awake and online.
 
 The weekly plan is a contract, not a wish list. It holds a fixed number of tasks
 across work and personal combined, and the cap is real. Nothing goes on without something coming

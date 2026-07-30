@@ -25,7 +25,12 @@ It will not. Point them at their own PM folder, the one onboarding wrote. That f
 | `SESSION-FLOW.md` | How a session runs, start to close |
 | `PROMPTS.md` | Paste-ready prompts for install and for running the thing |
 | `EXAMPLES.md` | Example use cases, with what a good answer looks like |
-| `.claude/` | The three capabilities: `voice-dump`, `daily-brief`, `friday-wrap` |
+| `.claude/` | Install-time only: the `setup-pm` skill and its command |
 
-A capability is one folder under `.claude/skills/` with a `SKILL.md`, plus a one-line command in
-`.claude/commands/`. Follow that shape when adding a fourth.
+## Where the routines live
+
+The three routines — voice dump, morning brief, Friday wrap — are sections of
+`templates/CLAUDE.md`. They are not skills and not slash commands, so they travel with the
+installed folder to any model that reads it. Add a fourth by writing another section there.
+
+`.claude/` holds onboarding only. It stays in the kit and is never copied into a user's folder.

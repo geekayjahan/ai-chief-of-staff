@@ -4,21 +4,23 @@ An EA-style project manager you install once and then talk to. It holds the plan
 one thing worth doing, processes what you dump on it, and stops you working on the wrong thing.
 
 It is opinionated by design. A weekly task cap you cannot quietly exceed, a cockpit that has to
-stay readable at a glance, a brain dump that gets cleared every session, and work and personal
+stay readable at a glance, an inbox that gets cleared every session, and work and personal
 kept apart so only one is in front of you at a time. These are inherited defaults, not settings.
 
-## The three capabilities
+## The three routines
 
-| Command | What it does |
+| Ask for | What it does |
 |---------|-------------|
-| `/voice-dump` | Talk at it. It splits the ramble into items, routes each to its project, and asks about anything with no home. |
-| `/daily-brief` | What needs you today, what is handled, the one thing worth doing. |
-| `/friday-wrap` | What closed, what slipped and why, what carries. Sets next week against the cap and writes the handoff. |
+| **Voice dump** | Talk at it. It splits the ramble into items, routes each to its project, and asks about anything with no home. |
+| **Morning brief** | What needs you today, what is handled, the one thing worth doing. Writes `MORNING_BRIEF.md`. |
+| **Friday wrap** | What closed, what slipped and why, what carries. Sets next week against the cap and writes the handoff. |
 
 The wrap writes the handoff that Monday's brief reads, so the week closes and opens as a loop.
 
-Each capability is a folder under `.claude/skills/` plus a one-line command. That is the whole
-mechanism, which is why they can be built one at a time and why you can add a fourth.
+All three are sections of the `CLAUDE.md` in your own folder. They are not plugins, skills, or
+slash commands, which means they work anywhere that reads the folder — Claude Desktop, Claude
+Code, or anything else you point at it. Ask in plain words, or set them on a schedule. Adding a
+fourth means writing another section.
 
 ## Who it is for
 
@@ -47,10 +49,14 @@ the first three cases in [EXAMPLES.md](EXAMPLES.md).
 
 ## Install
 
+**Claude Desktop or Claude.ai:** make a Project, attach this kit, and say *"Follow
+`templates/ONBOARDING.md` and set up my PM."* Then attach your new folder to a Project of its own
+and work there. This is the path most people want.
+
 **Claude Code:** open this kit and run `/setup-pm`.
 
-**Any other model that reads a folder** (Claude.ai, ChatGPT, Gemini): point it at `templates/`
-and tell it to follow `ONBOARDING.md`. The exact wording is in [PROMPTS.md](PROMPTS.md).
+**Any other model that reads a folder** (ChatGPT, Gemini): point it at `templates/` and tell it
+to follow `ONBOARDING.md`. The exact wording is in [PROMPTS.md](PROMPTS.md).
 
 **No folder access:** paste `templates/ONBOARDING.md` into the chat and say *"Follow this."*
 
@@ -62,19 +68,21 @@ and tell it to follow `ONBOARDING.md`. The exact wording is in [PROMPTS.md](PROM
 | [`SESSION-FLOW.md`](SESSION-FLOW.md) | How a session runs, start to close |
 | [`PROMPTS.md`](PROMPTS.md) | Paste-ready prompts for install and for running it |
 | [`EXAMPLES.md`](EXAMPLES.md) | Things to try, with what a good answer looks like |
-| `.claude/` | The three capabilities, as skills plus commands |
+| `.claude/` | Install-time onboarding only. Not copied into your folder |
 
 Inside `templates/`:
 
 ```
-CLAUDE.md              the session ritual, read first every time
+CLAUDE.md              the session ritual and the three routines, read first every time
 STATUS.md              handoff between sessions
 PROJECT_HQ.md          the cockpit, split work and personal
 WEEKLY_PLAN.md         the weekly contract, split work and personal
 GOALS.md               priority hierarchy per context
 ROADMAP.md             90-day milestones
-BRAIN_DUMP.md          unified inbox, cleared every session
+VOICE_DUMP.md          unified inbox, cleared every session
 USER_GUARDRAILS.md     your failure modes, with flag and redirect lines
+MORNING_BRIEF.md       written by the brief, replaced daily
+FRIDAY_WRAP.md         written by the wrap, replaced weekly
 ONBOARDING.md          the guided question set
 project-template/      copied once per project, capped and uncapped variants
 ```
@@ -85,14 +93,16 @@ Your folder, not this one:
 
 ```
 Your PM/
-├── CLAUDE.md              session ritual
+├── CLAUDE.md              session ritual + the three routines
 ├── STATUS.md              handoff
 ├── PROJECT_HQ.md          cockpit
 ├── WEEKLY_PLAN.md         weekly contract
 ├── GOALS.md               priorities
 ├── ROADMAP.md             90-day view
-├── BRAIN_DUMP.md          inbox
+├── VOICE_DUMP.md          inbox
 ├── USER_GUARDRAILS.md     failure modes
+├── MORNING_BRIEF.md       today, replaced daily
+├── FRIDAY_WRAP.md         this week, replaced weekly
 │
 └── <project-name>/        one folder per project
     ├── CLAUDE.md          project sub-agent, capped or uncapped
@@ -103,7 +113,7 @@ Your PM/
 
 ## Connecting your apps
 
-`/daily-brief` gets better with your calendar and mail attached. It is built to work with
+The morning brief gets better with your calendar and mail attached. It is built to work with
 nothing connected, so treat every connection as optional and add them one at a time.
 
 **Connect for reading, not for acting.** Read-only scopes are enough for everything the
@@ -122,8 +132,20 @@ page. That rule is doing real work the moment you connect a mailbox, because an 
 email you can put text in front of your assistant. This is the line that keeps that from
 mattering.
 
-**Nothing is load-bearing on a connector.** Each capability degrades to the PM files alone and
-says nothing about what is missing. You can demo the whole thing offline.
+**Nothing is load-bearing on a connector.** Each routine degrades to the PM files alone and says
+nothing about what is missing. You can demo the whole thing offline.
+
+## Running it on a schedule
+
+The morning brief and the Friday wrap are worth automating. Set a recurring task in whatever you
+run this in, pointed at your PM folder, saying `Run the morning brief` or `Run the Friday wrap`.
+Both are written to work with nobody watching: they take the documented default rather than
+asking, name the choice they made, and write their output file.
+
+One caveat worth knowing before you rely on it. A scheduled task in a desktop app only fires
+while the machine is awake and online. An 8am brief with a closed laptop does not run late, it
+does not run at all. If you want one waiting for you before you open the machine, schedule it
+somewhere that is always on.
 
 ## What it is not
 
@@ -144,6 +166,7 @@ Everything is a markdown file in your folder. Change the task cap by editing it 
 section of your `CLAUDE.md`. Add a project by copying `project-template/` and wiring it into
 `PROJECT_HQ.md`, `GOALS.md`, and the key files table.
 
-Add a capability the same way the three that ship were added: a folder under `.claude/skills/`
-with a `SKILL.md`, and a one-line command in `.claude/commands/`. That is the whole extension
-mechanism, and it is why the kit scales to use cases beyond this one.
+Add a routine the same way the three that ship are written: another section in your `CLAUDE.md`,
+under ROUTINES, saying when it fires, what it reads, what it writes, and what it does when nobody
+is there to answer a question. That is the whole extension mechanism. It is plain markdown in
+your own folder, which is why it survives changing tools.

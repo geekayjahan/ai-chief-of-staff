@@ -66,7 +66,7 @@ Capture: `PROJECTS[]` with fields `name, emoji, context, role, role_description,
 Ask:
 
 1. **Weekly task cap?** (default: 7, across work and personal combined)
-2. **Brain dump cadence** — when should the PM process it? (default: each session)
+2. **Voice dump cadence** — when should the PM process the inbox? (default: each session)
 3. **Any other hard rules to enforce?** Examples: "no Friday meetings", "monthly review by 7th", "no work on Sundays", "delegate detail to specific external tool".
 
 Capture: `WEEKLY_TASK_CAP`, `ADDITIONAL_HARD_RULES` (one-line bullets for CLAUDE.md), `ADDITIONAL_HARD_RULES_BODY` (fuller text for USER_GUARDRAILS.md if more nuance was given — otherwise same as one-liners).
@@ -105,8 +105,10 @@ Read each template from `templates/`. Substitute placeholders. Write to the inst
 | `WEEKLY_PLAN.md` | `templates/WEEKLY_PLAN.md` |
 | `GOALS.md` | `templates/GOALS.md` |
 | `ROADMAP.md` | `templates/ROADMAP.md` |
-| `BRAIN_DUMP.md` | `templates/BRAIN_DUMP.md` |
+| `VOICE_DUMP.md` | `templates/VOICE_DUMP.md` |
 | `USER_GUARDRAILS.md` | `templates/USER_GUARDRAILS.md` |
+| `MORNING_BRIEF.md` | `templates/MORNING_BRIEF.md` |
+| `FRIDAY_WRAP.md` | `templates/FRIDAY_WRAP.md` |
 
 **Per project**, create a subfolder named `kebab-case(project.name)` containing:
 
@@ -217,6 +219,10 @@ After writing all files, summarise:
 - What's filled, what's still skeleton
 - Tell the user: open the folder in a fresh session. The root `CLAUDE.md` will ask the session-mode question (work / personal / both) and run the rest of the ritual.
 
+The three routines (voice dump, morning brief, Friday wrap) live inside the `CLAUDE.md` you just wrote. Nothing else needs installing for them to work, and they travel with the folder to any model that reads it.
+
+If the user wants the morning brief to arrive on its own, tell them to set a recurring task in whatever they run this in, pointed at the folder, saying `Run the morning brief`. Add the caveat plainly: on a desktop app the task only fires while the machine is awake and online, so an 8am brief with a closed laptop will not run.
+
 End with a single concrete next step. No bullet-point summary of everything that happened.
 
 ## Complete placeholder reference
@@ -313,4 +319,5 @@ End with a single concrete next step. No bullet-point summary of everything that
 - **Project file names** are SCREAMING_SNAKE_CASE (`WEBSITE_REDESIGN.md`).
 - **Strip non-alphanumeric characters** from project names before deriving filenames.
 - **For uncapped projects**: do not write a `PROJECT_LOG.md`, do not include cap-related text in `PROJECT_TASKS.md` (use the empty-string conditional placeholders).
-- **Empty placeholders inside markdown tables**: when a conditional ro
+- **Empty placeholders inside markdown tables**: when a conditional row renders empty, delete the whole row rather than leaving a line of empty pipes. A table with a blank row reads as a broken file.
+- **Leave no `{{PLACEHOLDER}}` behind.** Before you finish, scan every file you wrote for surviving `{{` markers. Anything the user skipped becomes `→ fill when ready`, not a raw placeholder.

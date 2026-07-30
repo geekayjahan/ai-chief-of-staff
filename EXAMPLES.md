@@ -26,7 +26,7 @@ Talk into your phone on the walk back, paste the transcript in raw. This is what
 looks like, and the point is that you do not clean it up:
 
 ```
-/voice-dump
+Voice dump.
 
 ok so um the review deck still needs the rewrite before thursday I keep pushing it, oh and I
 never replied to Sam about the access thing, sorry the permissions, the permissions request
@@ -98,12 +98,12 @@ separated from things you are waiting on, because those need different conversat
 ## 7. The morning brief
 
 ```
-/daily-brief
+Run the morning brief.
 ```
 
-**Good:** what needs you today, what is already handled, and the one thing. Short enough to read
-standing up. It opens from whatever Friday's wrap wrote, so it should already know where you
-stopped.
+**Good:** what needs you today, what is already handled, and the one thing, written to
+`MORNING_BRIEF.md`. Short enough to read standing up. It opens from whatever Friday's wrap wrote,
+so it should already know where you stopped.
 
 **Not good:** a status report on every project, or a greeting and a preamble before the first
 real line. Also not good: stalling or complaining because you have no calendar connected. It is
@@ -114,16 +114,16 @@ built to run on the PM files alone, which is how you should demo it.
 ## 8. The Friday wrap, and the loop
 
 ```
-/friday-wrap
+Run the Friday wrap.
 ```
 
 **Good:** what closed, what slipped **and why it slipped**, what carries, hours against any
 capped project, and next week rebuilt against the cap with the cut named rather than everything
 quietly fitted in.
 
-Then the part worth demoing: run `/daily-brief` straight afterwards. It should open from the
-handoff the wrap just wrote. That round trip, wrap writes and brief reads, is the system working
-rather than two separate tricks.
+Then the part worth demoing: ask for the morning brief straight afterwards. It should open from
+the handoff the wrap just wrote. That round trip, wrap writes and brief reads, is the system
+working rather than two separate tricks.
 
 ---
 

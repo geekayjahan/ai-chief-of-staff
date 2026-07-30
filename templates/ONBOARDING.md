@@ -34,7 +34,7 @@ Push for specifics. Skip rather than fake.
 
 ### Phase 3 — Rules of the cockpit
 1. Weekly task cap? (default 7, across work + personal)
-2. Brain dump cadence? (default: each session)
+2. Voice dump cadence? (default: each session)
 3. Any extra hard rules to enforce?
 
 ### Phase 4 — Goals and roadmap
@@ -49,7 +49,7 @@ Push for specifics. Skip rather than fake.
 
 ## What to write
 
-**Root files** (always): `CLAUDE.md`, `STATUS.md`, `PROJECT_HQ.md`, `WEEKLY_PLAN.md`, `GOALS.md`, `ROADMAP.md`, `BRAIN_DUMP.md`, `USER_GUARDRAILS.md`.
+**Root files** (always): `CLAUDE.md`, `STATUS.md`, `PROJECT_HQ.md`, `WEEKLY_PLAN.md`, `GOALS.md`, `ROADMAP.md`, `VOICE_DUMP.md`, `USER_GUARDRAILS.md`, `MORNING_BRIEF.md`, `FRIDAY_WRAP.md`.
 
 **Per project**: Create a subfolder (kebab-case name) and copy from `project-template/`:
 - `CLAUDE.md` — use `CLAUDE-with-cap.md` if the project has a hard cap, else `CLAUDE-no-cap.md`

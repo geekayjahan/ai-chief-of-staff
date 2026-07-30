@@ -15,14 +15,15 @@ The canonical install prompt is the block at the top of `templates/ONBOARDING.md
 one place on purpose, so it never drifts from the phases underneath it. What changes is how you
 hand it over.
 
+**Claude Desktop or Claude.ai:** make a Project, attach this kit, and use the block below.
+
 **Claude Code:**
 
 ```
 /setup-pm
 ```
 
-**Claude.ai, ChatGPT, Gemini, anything that reads a folder:** upload or point at the `templates/`
-folder, then:
+**Anything that reads a folder:** upload or point at the `templates/` folder, then:
 
 ```
 This folder contains my Project Manager templates. Open ONBOARDING.md and follow the
@@ -50,21 +51,16 @@ You should get the mode question back, not a summary of your files.
 
 ---
 
-## The three capabilities
+## The three routines
 
-These are commands, not prompts to paste. On Claude Code they run as `/voice-dump`,
-`/daily-brief`, and `/friday-wrap`.
-
-Elsewhere, point the model at the skill and it behaves the same way:
-
-```
-Read .claude/skills/<name>/SKILL.md and follow it.
-```
+These live in your `CLAUDE.md`, so asking in plain words is enough. There is nothing to install
+and no command syntax to remember. If the assistant does not seem to know a routine, it has not
+read `CLAUDE.md` — tell it to, and try again.
 
 **Voice dump.** Paste the transcript straight in, no tidying:
 
 ```
-/voice-dump
+Voice dump.
 
 <the raw ramble, no punctuation, false starts and all>
 ```
@@ -74,18 +70,22 @@ Add "capture only, do not process yet" if you are still dumping and want it park
 Expect a short note of where things went plus questions about anything with no home. If it
 silently files something ambiguous, tell it to ask instead.
 
-**Daily brief.** `/daily-brief`. Expect what needs you today, what is handled, and the one
-thing. If it reads like a status report, say so; the brief is meant to be decision-shaped.
+**Morning brief.** `Run the morning brief.` Expect what needs you today, what is handled, and the
+one thing, written to `MORNING_BRIEF.md`. If it reads like a status report, say so; the brief is
+meant to be decision-shaped.
 
-**Friday wrap.** `/friday-wrap`. Expect done, slipped with the reason, carries, cap
-arithmetic, and next week rebuilt against the cap. If it rolls everything forward without
-naming a cut, the cap is not being enforced.
+**Friday wrap.** `Run the Friday wrap.` Expect done, slipped with the reason, carries, cap
+arithmetic, and next week rebuilt against the cap, written to `FRIDAY_WRAP.md` with the handoff
+in `STATUS.md`. If it rolls everything forward without naming a cut, the cap is not being
+enforced.
+
+Both of these are the ones worth putting on a schedule. Same wording, pointed at your folder.
 
 ---
 
 ## Set the week
 
-Only needed mid-week. `/friday-wrap` already does this at the close.
+Only needed mid-week. The Friday wrap already does this at the close.
 
 ```
 Set this week's plan. Hold the cap. For anything you are putting on, tell me what comes off.
