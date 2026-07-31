@@ -15,7 +15,7 @@ It supports both work and personal projects, with compartmentalised sessions: at
 
 ## Run order
 
-**Open with the interview. Nothing comes before it.** No file tour, no explanation of the system, no install questions. The first thing the user experiences is a question about them. Everything logistical (where files go) waits until Phase 6, when there is something to write.
+**Open with the interview. Nothing comes before it.** No file tour, no explanation of the system, no install questions. The first thing the user experiences is a question about them. Everything logistical (where files go) waits until Phase 7, when there is something to write.
 
 Follow phases in order. Don't skip ahead. Ask only what is unclear from prior turns. **Save progress as you go** by writing partial files when a section is complete — the user can pause and resume.
 
@@ -85,7 +85,20 @@ Ask:
 
 Capture: `USER_FAILURE_MODES`, `USER_DECISION_FATIGUE`, `USER_COLLABORATION_DYNAMICS`, `USER_ENERGY_RHYTHMS`.
 
-### Phase 6 — Write the files
+### Phase 6 — Voice and POV (optional)
+
+Say this phase is optional and skippable in one line, then ask:
+
+1. **Do you write or publish in your own name — posts, essays, decks, pitches?** If no, skip the phase entirely: no personality files get written, and the voice-dump routes only to guardrails on the personality axis.
+2. **Writing rules** — patterns to never use, patterns to always use, how they sound at their best.
+3. **Audiences** — who each project speaks to, if content is part of it.
+4. **POV** — the one lens everything runs through, core theses, contrarian takes, what they are *not*, phrases that are distinctly theirs.
+
+Capture: `USER_BANNED_PATTERNS`, `USER_ALWAYS_PATTERNS`, `USER_WRITING_PATTERNS`, `PROJECT_AUDIENCES`, `USER_TONE`, `USER_CENTRAL_LENS`, `USER_CORE_THESES`, `USER_CONTRARIAN_TAKES`, `USER_NOT_LIST`, `USER_PHRASES`.
+
+Anything answered partially still counts — write the files and mark skipped sections `→ fill when ready`.
+
+### Phase 7 — Write the files
 
 **Now ask where the files should live.** This is the first logistical question of the run, and it comes only now, when there are answers worth writing.
 
@@ -107,6 +120,13 @@ Read each template from `references/templates/` (next to this skill). Substitute
 | `ROADMAP.md` | `templates/ROADMAP.md` |
 | `BRAIN_DUMP.md` | `templates/BRAIN_DUMP.md` |
 | `USER_GUARDRAILS.md` | `templates/USER_GUARDRAILS.md` |
+
+**Personality files (only if Phase 6 was answered):**
+
+| File | Source template |
+|------|-----------------|
+| `USER_POV.md` | `templates/USER_POV.md` |
+| `USER_VOICE.md` | `templates/USER_VOICE.md` |
 
 **Per project**, create a subfolder named `kebab-case(project.name)` containing:
 
@@ -156,6 +176,26 @@ If both `CAPPED_PROJECT_HARD_RULE` and `ADDITIONAL_HARD_RULES` are present, rend
 **`ADDITIONAL_HARD_RULES_BODY`** (in USER_GUARDRAILS.md):
 - Same content, may include longer explanations if user gave them.
 - Else: empty string.
+
+**`CONTENT_AND_WRITING_SECTION`** (in root CLAUDE.md, after SESSION START RITUAL):
+- If Phase 6 was answered, render exactly:
+  ```
+  ## CONTENT AND WRITING
+
+  Before helping with any content, copy, or communication:
+  1. Read [USER_VOICE.md](USER_VOICE.md) — writing rules and audience per project
+  2. Read [USER_POV.md](USER_POV.md) — filter all content through their POV
+  3. Never produce AI-patterned writing. See USER_VOICE.md for the specific patterns to avoid.
+
+  ---
+  ```
+- Else: empty string (delete the line).
+
+**`PERSONALITY_FILE_ROWS`** (in root CLAUDE.md, KEY FILES table):
+- If Phase 6 was answered:
+  `| [USER_POV.md](USER_POV.md) | Their stances — content and decisions filter through it |`
+  `| [USER_VOICE.md](USER_VOICE.md) | Writing rules and audiences — read before drafting |`
+- Else: empty string (delete the line).
 
 **`TIME_ENVELOPES`** (in root CLAUDE.md):
 - One bullet per project: `- {{PROJECT_NAME}}: {{X}} hrs/week ({{cap_type}})` where cap_type is "hard cap" or "soft target". If neither given, omit the project.
@@ -208,7 +248,7 @@ If both `CAPPED_PROJECT_HARD_RULE` and `ADDITIONAL_HARD_RULES` are present, rend
 - If capped: `**This week's hours:** 0/{{PROJECT_HOURS_CAP}} used.`
 - Else: empty string.
 
-### Phase 7 — Confirm
+### Phase 8 — Confirm
 
 After writing all files, summarise briefly:
 
@@ -216,9 +256,9 @@ After writing all files, summarise briefly:
 - Number of files written (split: core, per-project)
 - What's filled, what's still skeleton
 
-No bullet-point summary of everything that happened. Then move straight to Phase 8 — setup is not done until the loop is offered.
+No bullet-point summary of everything that happened. Then move straight to Phase 9 — setup is not done until the loop is offered.
 
-### Phase 8 — Put it on a schedule
+### Phase 9 — Put it on a schedule
 
 The chief of staff earns its keep by showing up unasked: a brief every morning, a wrap every Friday. Offer to set that up now, before closing:
 
@@ -297,6 +337,8 @@ Close with one line: the folder is live, the schedule is (or is not) running, an
 | `{{CAPPED_PROJECT_HARD_RULE}}` | Hard-rule line (empty if no caps) |
 | `{{ADDITIONAL_HARD_RULES}}` | Extra rule bullets (empty if none) |
 | `{{ADDITIONAL_HARD_RULES_BODY}}` | Same for GUARDRAILS file |
+| `{{CONTENT_AND_WRITING_SECTION}}` | Voice/POV reading rules in CLAUDE.md (empty if Phase 6 skipped) |
+| `{{PERSONALITY_FILE_ROWS}}` | KEY FILES rows for USER_POV/USER_VOICE (empty if Phase 6 skipped) |
 
 ### Guardrails
 | Placeholder | Filled with |
@@ -305,6 +347,20 @@ Close with one line: the folder is live, the schedule is (or is not) running, an
 | `{{USER_DECISION_FATIGUE}}` | Decision-fatigue patterns |
 | `{{USER_COLLABORATION_DYNAMICS}}` | Per-partner notes |
 | `{{USER_ENERGY_RHYTHMS}}` | Energy patterns |
+
+### Voice and POV (only if Phase 6 was answered)
+| Placeholder | Filled with |
+|-------------|-------------|
+| `{{USER_BANNED_PATTERNS}}` | Writing patterns to never use |
+| `{{USER_ALWAYS_PATTERNS}}` | Writing patterns to always use |
+| `{{USER_WRITING_PATTERNS}}` | Structural/stylistic observations from their work |
+| `{{PROJECT_AUDIENCES}}` | Audience notes per project |
+| `{{USER_TONE}}` | How they sound at their best |
+| `{{USER_CENTRAL_LENS}}` | The one idea everything runs through |
+| `{{USER_CORE_THESES}}` | What they believe that their field doesn't |
+| `{{USER_CONTRARIAN_TAKES}}` | Where they push back on received wisdom |
+| `{{USER_NOT_LIST}}` | Positioning by exclusion |
+| `{{USER_PHRASES}}` | Language that is distinctly theirs |
 
 ### Per project (filled per-project when iterating)
 | Placeholder | Filled with |

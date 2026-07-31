@@ -3,7 +3,7 @@
 Paste-ready blocks for running your chief of staff day to day. Each one says when to reach for
 it and what you should get back.
 
-Building your own lives in [BUILD-PROMPTS.md](BUILD-PROMPTS.md), and installing the finished
+Building your own lives in [BUILD-YOUR-AI-CHIEF-OF-STAFF.md](BUILD-YOUR-AI-CHIEF-OF-STAFF.md), and installing the finished
 plugin is covered in the [README](README.md). Nothing here repeats those. Once yours is running
 you will not need most of these either — the assistant runs its own ritual from its `CLAUDE.md`.
 These matter when you want to trigger a specific move.

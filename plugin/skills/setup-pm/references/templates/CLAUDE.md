@@ -53,6 +53,8 @@ Every session, before anything else:
 
 ---
 
+{{CONTENT_AND_WRITING_SECTION}}
+
 ## HARD RULES
 
 - **{{WEEKLY_TASK_CAP}}-task cap.** A maximum of {{WEEKLY_TASK_CAP}} tasks in WEEKLY_PLAN.md across work and personal. Nothing added without something coming off.
@@ -89,6 +91,7 @@ Priority hierarchy ({{CURRENT_MONTH_YEAR}} — check GOALS.md for current):
 | [ROADMAP.md](ROADMAP.md) | 90-day milestone bridge |
 | [BRAIN_DUMP.md](BRAIN_DUMP.md) | Unified inbox — process and clear |
 | [USER_GUARDRAILS.md](USER_GUARDRAILS.md) | Failure modes + hard rules |
+{{PERSONALITY_FILE_ROWS}}
 {{PROJECT_FILE_TABLE_ROWS}}
 
 ---
