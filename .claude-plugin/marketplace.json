@@ -1,0 +1,13 @@
+{
+  "name": "ai-chief-of-staff",
+  "owner": {
+    "name": "GK"
+  },
+  "plugins": [
+    {
+      "name": "ai-chief-of-staff",
+      "source": "./plugin",
+      "description": "An AI chief of staff you install once and then talk to. Say \"set me up\" and it interviews you; everything else flows from there."
+    }
+  ]
+}

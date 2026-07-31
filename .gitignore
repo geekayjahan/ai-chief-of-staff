@@ -1,0 +1,18 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.log
+
+# Secrets
+.env
+.env.local
+.env*.local
+
+# Personalised PM installs. Your own PM should live outside this kit,
+# but ignore the common local install spots just in case.
+/my-pm/
+/pm/
+*.plugin
