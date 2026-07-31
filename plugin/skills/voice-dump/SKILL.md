@@ -37,12 +37,27 @@ question to hold, not a task. Keep it, mark it as a question, and do not invent 
 
 ## Step 2 — route
 
-For each item, decide where it goes:
+For each item, decide where it goes. Two questions sort everything: is this about the work, or
+about the user — and if it is work, how much does it matter right now.
+
+**Work, by priority:**
 
 - **A project** the user has. Add it to that project's tasks file.
 - **This week**, if it is genuinely this week's work. Respect the weekly cap. If the plan is
   full, say what would have to come off, and let the user decide.
-- **A guardrail**, if the item is the user noticing their own pattern.
+- **Goals or roadmap**, if the item is a shift in direction rather than a task. "The consulting
+  thing matters more than I thought" belongs in `GOALS.md` or `ROADMAP.md`, not on a task list.
+
+**The user, by personality file:**
+
+- **A guardrail** (`USER_GUARDRAILS.md`), if the item is the user noticing their own pattern.
+- **A stance** (`USER_POV.md`), if the item is an opinion or position worth keeping. Only if the
+  install has this file.
+- **A voice rule** (`USER_VOICE.md`), if the item is about how they want to sound or who they
+  write for. Only if the install has this file.
+
+**Neither:**
+
 - **Orphan**, if it has no home.
 
 Read `PROJECT_HQ.md` to know what projects exist. Match on meaning, not on keyword. If the
