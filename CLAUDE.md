@@ -1,10 +1,38 @@
-# AI Chief of Staff — lightning-lesson repo
+# This is the kit, not your chief of staff
 
-This repo is a ~30-minute lightning lesson: build a **Claude plugin** from a plain-English spec, port it to Claude Desktop, and publish it as a local app. Start at [`README.md`](README.md).
+This repo holds the lesson and the finished plugin for building a personal AI Chief of Staff.
+It is not itself a running assistant, and nothing here is personalised.
 
-- **The spec** is [`app/plugin-spec.md`](app/plugin-spec.md) — plain English, no code. The build follows it one capability at a time.
-- **The plugin source** lives in `plugins/solo-project-manager/` (manifest + skills + templates). Edit there, then run `./build-plugin.sh` to repack `solo-project-manager.plugin` — never hand-edit the `.plugin` zip.
-- **The local-app** version is `local-app/` (the same chief of staff as a plain folder any LLM can run). `everyday-pm.plugin` is the alternate variant kept as a comparison example.
-- **The install kit** is `templates/` — the alternate variant's templates, refined. Work/personal session modes, the three routines written into the installed `CLAUDE.md` rather than shipped as skills, and onboarding that shows the user a spec before it writes anything. This is what students install from; `SESSION-FLOW.md`, `PROMPTS.md`, and `EXAMPLES.md` are its docs.
-- **Capabilities are skills, not code** — each is a markdown `SKILL.md`. Keep them read-only-and-plan in spirit: the assistant plans and re-orients, it never executes project work, and app integration stays least-privilege (read-only, one app, narrow slice).
-- The lesson needs no API keys. If you extend the kit with something that does, keys live in `.env` only — it is gitignored, never commit it.
+**The lesson lives in `BUILD-PROMPTS.md`.** Students paste its six prompts into Claude Code and
+build their own. That is the primary path — the plugin is the worked answer, not the assignment.
+
+**The plugin lives in `plugin/`.** Skills, commands, a manifest, and the templates (inside
+`plugin/skills/setup-pm/references/templates/`, carrying `{{PLACEHOLDER}}` markers). Templates
+are the source to copy from during onboarding, never the thing to run or edit in place.
+
+## If someone asks you to set them up
+
+Run the `setup-pm` skill (`plugin/skills/setup-pm/SKILL.md`) and follow it. Open with the
+interview — nothing comes before it. Ask where the personalised files should go only when there
+is something to write, and never write them into this repo.
+
+## If someone opens this folder expecting their assistant to run
+
+It will not. Point them at their own folder, the one onboarding wrote. That folder has its own
+`CLAUDE.md`, which is the session ritual the assistant reads first.
+
+## Map
+
+| Path | What it is |
+|------|-----------|
+| `BUILD-PROMPTS.md` | The lesson — six prompts that build a chief of staff from scratch |
+| `plugin/` | The finished plugin: 4 skills, 4 commands, manifest, templates |
+| `SESSION-FLOW.md` | How a session runs, start to close |
+| `PROMPTS.md` | Paste-ready prompts for running the thing |
+| `EXAMPLES.md` | Example use cases, with what a good answer looks like |
+| `EVAL.md` / `EVAL-RESULTS.md` | The rubric this kit is graded against, and the scorecards |
+| `build-plugin.sh` | Packs `plugin/` into an installable `.plugin` file |
+
+A capability is one folder under `plugin/skills/` with a `SKILL.md`, plus a one-line command in
+`plugin/commands/`. Follow that shape when adding one — and add a matching prompt to
+`BUILD-PROMPTS.md`, because anything the plugin can do, a student must be able to build.

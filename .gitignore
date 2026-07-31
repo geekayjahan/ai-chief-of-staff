@@ -1,11 +1,3 @@
-# Instructor notes — never commit, students clone this repo
-INSTRUCTOR.md
-
-# Secrets
-.env
-.env.local
-.env*.local
-
 # OS / editor
 .DS_Store
 Thumbs.db
@@ -13,3 +5,14 @@ Thumbs.db
 .vscode/
 *.swp
 *.log
+
+# Secrets
+.env
+.env.local
+.env*.local
+
+# Personalised PM installs. Your own PM should live outside this kit,
+# but ignore the common local install spots just in case.
+/my-pm/
+/pm/
+*.plugin
