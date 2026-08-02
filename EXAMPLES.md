@@ -1,6 +1,6 @@
 # Example use cases
 
-Real things to try once your PM is installed, with what a good answer looks like. If you are
+Real things to try once your chief of staff is running, with what a good answer looks like. If you are
 evaluating whether this is worth the setup, work through the first three. They are where the
 difference shows.
 
@@ -26,7 +26,7 @@ Talk into your phone on the walk back, paste the transcript in raw. This is what
 looks like, and the point is that you do not clean it up:
 
 ```
-Voice dump.
+/voice-dump
 
 ok so um the review deck still needs the rewrite before thursday I keep pushing it, oh and I
 never replied to Sam about the access thing, sorry the permissions, the permissions request
@@ -41,8 +41,8 @@ the reply to Sam becomes a task, the repetition collapses into one item, and "I 
 whether we've scoped this way too big" is kept as an open question rather than turned into a task
 you never asked for. Anything it cannot place comes back as one question.
 
-Try this one first. It is the clearest illustration of the whole system: messy input, sorted
-output, nothing invented.
+This is the one to try first. It is the clearest illustration of the whole system: messy input,
+sorted output, nothing invented.
 
 ---
 
@@ -98,30 +98,30 @@ separated from things you are waiting on, because those need different conversat
 ## 7. The morning brief
 
 ```
-Run the morning brief.
+/daily-brief
 ```
 
-**Good:** what needs you today, what is already handled, and the one thing, written to
-`MORNING_BRIEF.md`. Short enough to read standing up. It opens from whatever Friday's wrap wrote,
-so it should already know where you stopped.
+**Good:** what needs you today, what is already handled, and the one thing. Short enough to read
+standing up. It opens from whatever Friday's wrap wrote, so it should already know where you
+stopped.
 
 **Not good:** a status report on every project, or a greeting and a preamble before the first
 real line. Also not good: stalling or complaining because you have no calendar connected. It is
-built to run on the PM files alone, so connect nothing until the brief is already useful.
+built to run on your files alone.
 
 ---
 
 ## 8. The Friday wrap, and the loop
 
 ```
-Run the Friday wrap.
+/friday-wrap
 ```
 
 **Good:** what closed, what slipped **and why it slipped**, what carries, hours against any
 capped project, and next week rebuilt against the cap with the cut named rather than everything
 quietly fitted in.
 
-Then the part worth seeing: ask for the morning brief straight afterwards. It should open from the
+Then the part worth seeing: run `/daily-brief` straight afterwards. It should open from the
 handoff the wrap just wrote. That round trip, wrap writes and brief reads, is the system working
 rather than two separate tricks.
 
@@ -157,3 +157,6 @@ and give each one a concrete "flag when" line.
 The assistant is working if it says less than you expected, asks before routing something
 ambiguous, and refuses things. An assistant that agrees with every addition to your week is a
 list, and you already had one of those.
+
+Work through the first three cases in your first week. Then stop testing it and let it run —
+the Friday wrap will tell you whether the loop is holding.

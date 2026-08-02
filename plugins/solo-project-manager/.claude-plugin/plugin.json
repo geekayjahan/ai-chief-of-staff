@@ -1,9 +1,0 @@
-{
-  "name": "solo-project-manager",
-  "version": "0.2.0",
-  "description": "An EA-style AI chief of staff for solo operators juggling multiple projects. Take a voice dump, get a three-sentence daily brief and a Friday wrap, and defend a weekly task cap — with least-privilege read-only app integration. Installs as a folder of templates personalised through guided onboarding.",
-  "author": {
-    "name": "Solo Project Manager"
-  },
-  "keywords": ["productivity", "project-management", "solo", "founder", "ea", "planning"]
-}
