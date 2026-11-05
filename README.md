@@ -118,3 +118,7 @@ appears. Change how it talks to you by editing the EA IDENTITY section of your `
 Add a fourth capability the way you built the first three: one more prompt, one more skill.
 
 **Next step: open [`BUILD-YOUR-AI-CHIEF-OF-STAFF.md`](BUILD-YOUR-AI-CHIEF-OF-STAFF.md) and paste prompt 1.**
+
+## Go further
+
+This kit comes from one lesson. The [Product Builder Certification by GK](https://maven.com/level-up-with-ai/product-builder-certification-spec-driven-ai-agents?utm_source=github&utm_medium=repo&utm_campaign=pbc-dec26&utm_content=gh-ai-cos) teaches the full method over two weeks: a spec for a real problem, AI agents building from it in Claude Code, evals that prove it works, and a live deployment.
