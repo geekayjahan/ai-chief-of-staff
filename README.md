@@ -110,6 +110,8 @@ it, and that specificity is the reason it can refuse things on your behalf.
 | [`PROMPTS.md`](PROMPTS.md) | Paste-ready prompts for running it day to day |
 | [`EXAMPLES.md`](EXAMPLES.md) | Things to try, with what a good answer looks like |
 | `build-plugin.sh` | Packs `plugin/` into an installable `.plugin` file |
+| [`docs/EVAL.md`](docs/EVAL.md) | The binary rubric this kit is graded against, with one dated audit |
+| [`SECURITY.md`](SECURITY.md) | What the plugin can and cannot do, and how to report a problem |
 
 ## Changing it later
 
